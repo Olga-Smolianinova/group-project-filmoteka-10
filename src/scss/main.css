@@ -263,10 +263,9 @@ html {
 body {
   margin: 0;
   font-family: Roboto, sans-serif;
-  font-size: 11px;
-  line-height: 20px;
+  font-size: 12px;
+  line-height: 16px;
   font-weight: 500;
-  letter-spacing: 0.08em;
   color: #000000;
   background-color: #e5e5e5;
 }
