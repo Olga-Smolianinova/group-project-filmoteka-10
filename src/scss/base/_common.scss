@@ -1,13 +1,13 @@
-.visually-hidden {
-  position: absolute;
-  clip: rect(1px 1px 1px 1px);
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 0;
-  border: 0;
-  height: 1px;
-  width: 1px;
-  overflow: hidden;
-}
+// .visually-hidden {
+//   position: absolute;
+//   clip: rect(1px 1px 1px 1px);
+//   clip: rect(1px, 1px, 1px, 1px);
+//   padding: 0;
+//   border: 0;
+//   height: 1px;
+//   width: 1px;
+//   overflow: hidden;
+// }
 
 html {
   box-sizing: border-box;
@@ -15,13 +15,13 @@ html {
 
 body {
   margin: 0;
-  font-family: Montserrat, sans-serif;
+  font-family: Roboto, sans-serif;
   font-size: 11px;
   line-height: 20px;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.08em;
   color: $primary-text-color;
-  // background-color: $primary-white-color;
+  background-color: $secondary-bacground-color;
 }
 
 *,
@@ -30,19 +30,16 @@ body {
   box-sizing: inherit;
 }
 
-:active,
-:hover,
-:focus {
-  outline: 0;
-  outline-offset: 0;
-}
+// :active,
+// :hover,
+// :focus {
+//   outline: 0;
+//   outline-offset: 0;
+// }
 
 h1,
 h2,
 h3,
-h4,
-h5,
-h6,
 ul,
 li,
 p {
@@ -66,30 +63,30 @@ a {
   text-decoration: none;
 }
 
-.section {
-  padding: 50px 0;
+// .section {
+//   padding: 50px 0;
 
-  @include for-size(desktop) {
-    padding: 130px 0;
-  }
-}
+//   @include for-size(desktop) {
+//     padding: 130px 0;
+//   }
+// }
 
-.container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 100%;
-  padding-left: 20px;
-  padding-right: 20px;
+// .container {
+//   margin-left: auto;
+//   margin-right: auto;
+//   width: 100%;
+//   padding-left: 20px;
+//   padding-right: 20px;
 
-  @include for-size(tablet-landscape) {
-    width: 768px;
-    padding-left: 40px;
-    padding-right: 40px;
-  }
+//   @include for-size(tablet-landscape) {
+//     width: 768px;
+//     padding-left: 40px;
+//     padding-right: 40px;
+//   }
 
-  @include for-size(desktop) {
-    width: 1354px;
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-}
+//   @include for-size(desktop) {
+//     width: 1024px;
+//     padding-left: 20px;
+//     padding-right: 20px;
+//   }
+// }
