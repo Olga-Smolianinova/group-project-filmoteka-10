@@ -28,6 +28,7 @@ body {
 *::before,
 *::after {
   box-sizing: inherit;
+  outline: 2px solid teal;
 }
 
 // :active,
@@ -63,13 +64,17 @@ a {
   text-decoration: none;
 }
 
-// .section {
-//   padding: 50px 0;
+.section {
+  padding: 20px 20px 40px;
 
-//   @include for-size(desktop) {
-//     padding: 130px 0;
-//   }
-// }
+  @include for-size(tablet-landscape) {
+    padding: 60px 75px 60px 76px;
+  }
+
+  @include for-size(desktop) {
+    padding: 60px 71px;
+  }
+}
 
 // .container {
 //   margin-left: auto;

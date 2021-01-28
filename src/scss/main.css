@@ -275,6 +275,7 @@ body {
 *::after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
+  outline: 2px solid teal;
 }
 
 h1,
@@ -303,6 +304,22 @@ a {
   text-decoration: none;
 }
 
+.section {
+  padding: 20px 20px 40px;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 60px 75px 60px 76px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 60px 71px;
+  }
+}
+
 /* roboto-regular - latin */
 @font-face {
   font-family: 'Roboto';
@@ -318,5 +335,21 @@ a {
   font-style: normal;
   font-weight: 500;
   src: local(""), url("../fonts/roboto-v20-latin-500.woff2") format("woff2"), url("../fonts/roboto-v20-latin-500.woff") format("woff");
+}
+
+.film-sign {
+  padding: 10px 0 20px;
+}
+
+.film-title {
+  color: #000000;
+}
+
+.film-text {
+  color: #ff6b01;
+}
+
+.container {
+  background-color: yellow;
 }
 /*# sourceMappingURL=main.css.map */
