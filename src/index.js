@@ -1,8 +1,6 @@
 //  ЗДЕСЬ КОД НЕ ПИШЕМ, ТОЛЬКО ПОДКЛЮЧАЕМ ФАЙЛЫ ИЗ ПАПКИ JS -->
 import './scss/main.scss';
 
-import './js/notification.js';
-
 import './js/1initialHomePage.js';
 
 import './js/2searchAndPlaginationHomePage.js';
