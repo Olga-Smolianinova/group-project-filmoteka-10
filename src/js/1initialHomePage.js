@@ -6,10 +6,11 @@
 // - создаем функцию fetchGenres которая забирает жанры и кладет их в переменную genres (она понадобится в работе следующим участникам);
 // - запускаем функцию fetchPopularMoviesList и fetchGenres.
 
-// Доступ к элементам
-import refs from './refs.js';
-
-// Доступ к html <ul class="gallery"></ul>
+// // Доступ к html <ul class="gallery"></ul>
+const refs = {
+  galleryRef: document.querySelector('.gallery'),
+};
+console.log(refs.galleryRef);
 
 const renderFilms = 0;
 const genres = 0;
@@ -19,13 +20,18 @@ function createCardFunc(imgPath, filmTitle, movieId) {
   //
 }
 
-import footer from '../html/footer.html';
-console.log(footer);
+function fetchPopularMoviesLis() {
+  const url =
+    'https://api.themoviedb.org/3/trending/movie/week?api_key=a524e22e3630cf24a2e0a24a461145a2';
 
-// const footers = document.querySelector('.container');
-// console.log(footers);
+  return fetch(url)
+    .then(response => {
+      console.log(response);
+      return response.json();
+    })
+    .then(({ results }) => {
+      console.log(results);
+    });
+}
 
-const gallery = document.querySelector('.gallery');
-console.log(gallery);
-
-gallery.insertAdjacentHTML('beforeend', footer);
+fetchPopularMoviesLis();
