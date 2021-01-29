@@ -33,5 +33,3 @@ function fetchPopularMoviesLis() {
       console.log(results);
     });
 }
-
-fetchPopularMoviesLis();
