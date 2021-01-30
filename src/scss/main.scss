@@ -1,0 +1,21 @@
+// ЗДЕСЬ КОД НЕ ПИШЕМ, ТОЛЬКО ПОДКЛЮЧАЕМ ФАЙЛЫ ИЗ ПАПКИ SCSS -->
+
+// UTILS
+@import './utils/variables';
+@import './utils/mixins';
+
+// BASE
+@import './base/normalize';
+@import './base/common';
+
+// COMPONENTS
+@import './components/logo';
+@import './components/modal-main';
+
+// LAYOUTS
+@import './layouts/header';
+@import './layouts/main';
+@import './layouts/homePage';
+@import './layouts/detailsPage';
+@import './layouts/myFilmLibraryPage';
+@import './layouts/footer';
