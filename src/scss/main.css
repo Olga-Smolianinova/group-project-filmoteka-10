@@ -264,10 +264,9 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
   font-size: 12px;
-  line-height: 16px;
   font-weight: 500;
   color: #000000;
-  background-color: #e5e5e5;
+  background-color: #ffffff;
 }
 
 *,
@@ -275,7 +274,6 @@ body {
 *::after {
   -webkit-box-sizing: inherit;
           box-sizing: inherit;
-  outline: 2px solid teal;
 }
 
 h1,
@@ -291,7 +289,6 @@ p {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
 }
 
 ul {
@@ -337,6 +334,284 @@ a {
   src: local(""), url("../fonts/roboto-v20-latin-500.woff2") format("woff2"), url("../fonts/roboto-v20-latin-500.woff") format("woff");
 }
 
+.header-background-home {
+  padding-top: 46px;
+  height: 230px;
+  max-width: 100%;
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderMobileHome.jpg);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderMobileHome.jpg);
+}
+
+@media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .header-background-home {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderMobileHome@2x.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderMobileHome@2x.jpg);
+  }
+}
+
+@media (min-width: 768px) {
+  .header-background-home {
+    padding-top: 41px;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderTabletHome.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderTabletHome.jpg);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
+  .header-background-home {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderTabletHome@2x.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderTabletHome@2x.jpg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-background-home {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderDesktopHome.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderDesktopHome.jpg);
+  }
+}
+
+@media screen and (min-width: 1024px) and (min-device-pixel-ratio: 2), screen and (min-width: 1024px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1024px) and (min-resolution: 192dpi), screen and (min-width: 1024px) and (min-resolution: 2dppx) {
+  .header-background-home {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderDesktopHome@2x.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderDesktopHome@2x.jpg);
+  }
+}
+
+.header-background-library {
+  padding-top: 46px;
+  height: 230px;
+  max-width: 100%;
+  background-color: #000000;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderMobileLibrary.jpg);
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderMobileLibrary.jpg);
+}
+
+@media screen and (min-device-pixel-ratio: 2), screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-resolution: 192dpi), screen and (min-resolution: 2dppx) {
+  .header-background-library {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderMobileLibrary@2x.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderMobileLibrary@2x.jpg);
+  }
+}
+
+@media (min-width: 768px) {
+  .header-background-library {
+    padding-top: 41px;
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderTabletLibrary.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderTabletLibrary.jpg);
+  }
+}
+
+@media screen and (min-width: 768px) and (min-device-pixel-ratio: 2), screen and (min-width: 768px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 768px) and (min-resolution: 192dpi), screen and (min-width: 768px) and (min-resolution: 2dppx) {
+  .header-background-library {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderTabletLibrary@2x.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderTabletLibrary@2x.jpg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .header-background-library {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderDesktopLibrary.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderDesktopLibrary.jpg);
+  }
+}
+
+@media screen and (min-width: 1024px) and (min-device-pixel-ratio: 2), screen and (min-width: 1024px) and (-webkit-min-device-pixel-ratio: 2), screen and (min-width: 1024px) and (min-resolution: 192dpi), screen and (min-width: 1024px) and (min-resolution: 2dppx) {
+  .header-background-library {
+    background-image: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.56)), to(rgba(0, 0, 0, 0.56))), url(../images/HeaderDesktopLibrary@2x.jpg);
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56)), url(../images/HeaderDesktopLibrary@2x.jpg);
+  }
+}
+
+.conteiner {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+@media (min-width: 768px) {
+  .conteiner {
+    padding-left: 76px;
+    padding-right: 75px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .conteiner {
+    padding-left: 71px;
+    padding-right: 71px;
+  }
+}
+
+.title {
+  display: none;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 5px;
+  color: #ffffff;
+}
+
+@media (min-width: 768px) {
+  .title {
+    display: block;
+  }
+}
+
+@media (min-width: 768px) {
+  .logo {
+    margin-top: 5px;
+    margin-right: 12px;
+  }
+}
+
+.logo-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.flex-conteiner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: nowrap;
+      flex-wrap: nowrap;
+}
+
+.item {
+  margin-top: 17px;
+}
+
+.item:last-child {
+  margin-left: 40px;
+}
+
+.item a {
+  border-bottom: 3px solid transparent;
+}
+
+.item a:hover {
+  border-bottom: 3px solid #ff6b01;
+}
+
+.item a:active {
+  border-bottom: 3px solid #ff6b01;
+}
+
+.nav-link {
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.site-nav-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-box-home {
+  display: block;
+  position: relative;
+  margin-top: 38px;
+}
+
+@media (min-width: 768px) {
+  .search-box-home {
+    width: 336px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.search-img {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+}
+
+.search-text {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+.form-button-library {
+  display: none;
+  margin-top: 45px;
+  text-align: center;
+}
+
+.button-library:last-child {
+  margin-left: 12px;
+}
+
+.button-library {
+  font-family: inherit;
+  font-size: 12px;
+  color: #ffffff;
+  height: 44px;
+  width: 124px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.button-library-active {
+  background-color: #ff6b01;
+}
+
+.button-library-inactive {
+  background: transparent;
+  text-decoration: none;
+  border: 2px solid #ffffff;
+  outline: 5px;
+}
+
+::-webkit-input-placeholder {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+:-ms-input-placeholder {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+::-ms-input-placeholder {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+::placeholder {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 400;
+}
+
 .film-sign {
   padding: 10px 0 20px;
 }
@@ -347,9 +622,5 @@ a {
 
 .film-text {
   color: #ff6b01;
-}
-
-.container {
-  background-color: yellow;
 }
 /*# sourceMappingURL=main.css.map */
