@@ -1,4 +1,3 @@
-
 .visually-hidden {
   position: absolute;
   clip: rect(1px 1px 1px 1px);
@@ -28,7 +27,7 @@ body {
 *::before,
 *::after {
   box-sizing: inherit;
- outline: 2px solid teal;
+  outline: 2px solid teal;
 }
 
 :active,
@@ -37,10 +36,6 @@ body {
   outline: 0;
   outline-offset: 0;
 }
- 
-}
-
-
 
 h1,
 h2,
@@ -69,7 +64,6 @@ a {
 }
 
 .section {
-
   padding: 20px 20px 40px;
 
   @include for-size(tablet-landscape) {
