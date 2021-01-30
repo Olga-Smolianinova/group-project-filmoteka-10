@@ -1,13 +1,11 @@
 {{#each this}}
-<li>
+<li class="film-element">
     {{!-- <img src={{poster_path}} alt=''> --}}
-    <img src="{{poster_path}}" alt="">
+    <img src="https://image.tmdb.org/t/p/w780{{poster_path}}" alt={{title}}>
     <div class="film-sign">
         <h3 class="film-title">{{ original_title}}</h3>
 
-        {{#each genres}}
-        <p class="film-text">{{name}}</p>
-        {{/each}}
+        <p class="film-text"></p>
 
         <p>{{release_date}} | {{vote_average}}</p>
     </div>

@@ -1,4 +1,48 @@
+// HTML <ul class="gallery"></ul>
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  // padding-left: 20px;
+  // padding-right: 20px;
+
+  //   @include for-size(tablet-landscape) {
+  //     width: 768px;
+  //     padding-left: 40px;
+  //     padding-right: 40px;
+  //   }
+
+  //   @include for-size(desktop) {
+  //     width: 1024px;
+  //     padding-left: 20px;
+  //     padding-right: 20px;
+  //   }
+}
+
+.gallery {
+  @include for-size(tablet-landscape) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 // Made of Olga/Стили для ../templates/list-films.hbs
+.film-element {
+  // li
+  margin-bottom: 30px;
+  img {
+    width: 100%;
+  }
+  @include for-size(tablet-landscape) {
+    width: calc((100% - 2 * 30px) / 2);
+    margin-right: 30px;
+    margin-bottom: 30px;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+}
+
 .film-sign {
   //div
   padding: 10px 0 20px;

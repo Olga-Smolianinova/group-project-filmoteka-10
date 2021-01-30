@@ -45,18 +45,18 @@ function fetchPopularMoviesList() {
 fetchPopularMoviesList();
 
 // fetch запрос на список самых популярных фильмов на сегодня для создания коллекции на главной странице:
-function fetchGenres() {
-  const url =
-    'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2';
+// function fetchGenres() {
+//   const url =
+//     'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2';
 
-  return fetch(url)
-    .then(response => {
-      console.log(response);
-      return response.json();
-    })
-    .then(({ genres }) => {
-      console.log(genres);
-      // createCardFunc(genres);
-    });
-}
-fetchGenres();
+//   return fetch(url)
+//     .then(response => {
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then(({ genres }) => {
+//       console.log(genres);
+//       // createCardFunc(genres);
+//     });
+// }
+// fetchGenres();
