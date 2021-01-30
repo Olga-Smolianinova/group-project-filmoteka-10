@@ -1,9 +1,11 @@
 {{#each this}}
 <li>
-    <img src="" alt="">
+    <img src={{backdrop_path}} alt=''>
+
     <div class="film-sign">
-        <h3 class="film-title"></h3>
+        <h3 class="film-title">{{ original_title}}</h3>
         <p class="film-text"></p>
+        <p>{{release_date}} | {{vote_average}}</p>
     </div>
 </li>
 {{/each}}

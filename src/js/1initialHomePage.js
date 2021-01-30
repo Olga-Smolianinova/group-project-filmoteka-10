@@ -1,3 +1,6 @@
+//  получаем доступ к шаблону для отображения списка фильмов
+import templateListOfFilms from '../templates/list-films.hbs';
+
 // 1.2) 1initialHomePage.js:
 
 // - создаем глобальные переменные renderFilms и genres, pageNumber (будет использоваться в запросе при плагинации);
@@ -20,7 +23,7 @@ function createCardFunc(imgPath, filmTitle, movieId) {
   //
 }
 
-function fetchPopularMoviesLis() {
+function fetchPopularMoviesList() {
   const url =
     'https://api.themoviedb.org/3/trending/movie/week?api_key=a524e22e3630cf24a2e0a24a461145a2';
 
@@ -31,7 +34,15 @@ function fetchPopularMoviesLis() {
     })
     .then(({ results }) => {
       console.log(results);
+      createListOfFilms(results);
     });
 }
 
-fetchPopularMoviesLis();
+fetchPopularMoviesList();
+
+function createListOfFilms(data) {
+  const markup = templateListOfFilms(data);
+
+  // встраиваем полученные данные в HTML документ
+  refs.galleryRef.insertAdjacentHTML('beforeend', markup);
+}
