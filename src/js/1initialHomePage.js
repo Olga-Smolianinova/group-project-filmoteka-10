@@ -19,13 +19,13 @@ function createCardFunc(imgPath, filmTitle, movieId) {
   //
 }
 
-import footer from '../html/footer.html';
-console.log(footer);
+// import footer from '../html/footer.html';
+// console.log(footer);
 
-// const footers = document.querySelector('.container');
-// console.log(footers);
+// // const footers = document.querySelector('.container');
+// // console.log(footers);
 
-const gallery = document.querySelector('.gallery');
-console.log(gallery);
+// const gallery = document.querySelector('.gallery');
+// console.log(gallery);
 
-gallery.insertAdjacentHTML('beforeend', footer);
+// gallery.insertAdjacentHTML('beforeend', footer);
