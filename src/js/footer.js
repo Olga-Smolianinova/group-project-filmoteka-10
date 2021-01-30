@@ -1,3 +1,4 @@
+
 import markupFooter from '../html/footer.html';
 
 console.log(markupFooter);
@@ -35,4 +36,5 @@ function onCloceModalESC(event) {
         onCloseModal();
     }
 }
+
 
