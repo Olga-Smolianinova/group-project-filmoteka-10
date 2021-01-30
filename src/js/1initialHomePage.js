@@ -20,6 +20,8 @@ function createCardFunc(imgPath, filmTitle, movieId) {
   //
 }
 
+
+=======
 function fetchPopularMoviesLis() {
   const url =
     'https://api.themoviedb.org/3/trending/movie/week?api_key=a524e22e3630cf24a2e0a24a461145a2';
@@ -33,3 +35,4 @@ function fetchPopularMoviesLis() {
       console.log(results);
     });
 }
+
