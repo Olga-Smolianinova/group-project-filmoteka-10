@@ -4,7 +4,6 @@ import markupFooter from '../html/footer.html';
 const refs = {
   footer: document.querySelector('footer'),
 };
-console.log(refs);
 refs.footer.insertAdjacentHTML('afterend', markupFooter);
 
 // =====================================>
