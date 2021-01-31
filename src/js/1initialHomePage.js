@@ -3,8 +3,6 @@
 import templateListOfFilms from '../templates/list-films.hbs';
 import refs from '../js/refs'
 
-//  получаем доступ к шаблону для отображения списка фильмов
-import templateListOfFilms from '../templates/list-films.hbs';
 
 
 // 1.2) 1initialHomePage.js:
@@ -15,43 +13,18 @@ import templateListOfFilms from '../templates/list-films.hbs';
 // - создаем функцию fetchGenres которая забирает жанры и кладет их в переменную genres (она понадобится в работе следующим участникам);
 // - запускаем функцию fetchPopularMoviesList и fetchGenres.
 
-
-import refs from './refs.js';
-
-
-// // Доступ к html <ul class="gallery"></ul>
-const refs = {
-  galleryRef: document.querySelector('.gallery'),
-};
-
-
 const renderFilms = 0;
 const genres = 0;
 const pageNumber = 1;
 
-
-function createCardFunc(imgPath, filmTitle, movieId) {
-  //
-}
-
 import footer from '../html/footer.html';
 
-=======
 // для отрисовки фильмов через template  в HTML
 function createCardFunc(data, filmTitle) {
   const markup = templateListOfFilms(data, filmTitle);
 
 
   // встраиваем полученные данные в HTML документ
-  refs.galleryRef.insertAdjacentHTML('beforeend', markup);
-}
-
-
-gallery.insertAdjacentHTML('beforeend', footer);
-
-function createCardFunc(data) {
-  const markup = templateListOfFilms(data);
-  
   refs.galleryRef.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -67,11 +40,9 @@ function fetchPopularMoviesList() {
     })
     .then(({ results }) => {
 
-
       // console.log(results);
       createCardFunc(results);
       return results
-
 
       // test=====================
       console.dir(results);
