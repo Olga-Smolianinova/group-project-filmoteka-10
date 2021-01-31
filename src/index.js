@@ -1,4 +1,6 @@
 //  ЗДЕСЬ КОД НЕ ПИШЕМ, ТОЛЬКО ПОДКЛЮЧАЕМ ФАЙЛЫ ИЗ ПАПКИ JS -->
+import './js/header.js';
+
 import './scss/main.scss';
 
 import './js/header.js';
@@ -12,6 +14,7 @@ import './js/3navigation.js';
 import './js/4filmDetailsPage.js';
 
 import './js/5libraryPage';
+
 
 import './js/footer';
 

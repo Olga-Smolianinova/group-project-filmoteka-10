@@ -1,5 +1,8 @@
+
 import markupFilms from '../html/myFilmLibraryPage.html';
 import refs from '../js/refs'
+import templateListOfFilms from '../templates/my-library.hbs';
+
 
 // ---------------------------
 refs.main.insertAdjacentHTML('afterend', markupFilms)// тестовая розметка для фильмов
@@ -74,7 +77,41 @@ function getArrQueueFilms() { // получает масив из локал с�
 
 // ==========Логика для отрисовки "Просмотренных" фильмов===========
 
-// const arrArrWatchedFilms = getArrWatchedFilms();// масив "Просмотренных фильмов"
-// console.log(arrArrWatchedFilms);
 
+const arrArrWatchedFilms = getArrWatchedFilms();// масив "Просмотренных фильмов"
+
+function fetchMoviesForId(movie_id) {// ищет фильмы по ID
+  const url =
+    `https://api.themoviedb.org/3/movie/${movie_id}?api_key=a524e22e3630cf24a2e0a24a461145a2`;
+
+    fetch(url)
+    .then(response => {
+      return response.json();
+    })
+      .then(results=> {
+          const markup = templateListOfFilms(results);
+        refs.galleryRef.insertAdjacentHTML('beforeend', markup);
+    });
+}
+
+function clickBtn(evt) {// делает розметку в мейн фильмов из локал сторедж "просмотренные"
+    evt.preventDefault();
+    refs.galleryRef.innerHTML = ''
+    arrArrWatchedFilms.map(film => {
+        fetchMoviesForId(film)
+    })
+
+    addClassMyLibrary()
+}
+
+refs.myLibraryBtn.addEventListener('click', clickBtn)
+
+
+function addClassMyLibrary() {
+    refs.backgroundHome.classList.remove('header-background-home');
+    refs.backgroundHome.classList.add('header-background-library');
+
+    refs.bntlibrary.classList.remove('is-hidden');
+    refs.inpuForm.classList.add('is-hidden');
+}
 

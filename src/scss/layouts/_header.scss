@@ -240,10 +240,15 @@
   border-bottom: 1px solid $primary-white-color;
 }
 .form-button-library {
-  display: none;
+
+  display: block;
   margin-top: 45px;
   text-align: center;
 }
+.is-hidden {
+  display: none;
+}
+
 .button-library:last-child {
   margin-left: 12px;
 }

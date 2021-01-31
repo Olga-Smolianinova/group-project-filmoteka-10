@@ -1,5 +1,11 @@
+
 //  получаем доступ к шаблону для отображения списка фильмов
 import templateListOfFilms from '../templates/list-films.hbs';
+import refs from '../js/refs'
+
+//  получаем доступ к шаблону для отображения списка фильмов
+import templateListOfFilms from '../templates/list-films.hbs';
+
 
 // 1.2) 1initialHomePage.js:
 
@@ -9,20 +15,43 @@ import templateListOfFilms from '../templates/list-films.hbs';
 // - создаем функцию fetchGenres которая забирает жанры и кладет их в переменную genres (она понадобится в работе следующим участникам);
 // - запускаем функцию fetchPopularMoviesList и fetchGenres.
 
+
+import refs from './refs.js';
+
+
 // // Доступ к html <ul class="gallery"></ul>
 const refs = {
   galleryRef: document.querySelector('.gallery'),
 };
 
+
 const renderFilms = 0;
 const genres = 0;
 const pageNumber = 1;
 
+
+function createCardFunc(imgPath, filmTitle, movieId) {
+  //
+}
+
+import footer from '../html/footer.html';
+
+=======
 // для отрисовки фильмов через template  в HTML
 function createCardFunc(data, filmTitle) {
   const markup = templateListOfFilms(data, filmTitle);
 
+
   // встраиваем полученные данные в HTML документ
+  refs.galleryRef.insertAdjacentHTML('beforeend', markup);
+}
+
+
+gallery.insertAdjacentHTML('beforeend', footer);
+
+function createCardFunc(data) {
+  const markup = templateListOfFilms(data);
+  
   refs.galleryRef.insertAdjacentHTML('beforeend', markup);
 }
 
@@ -37,6 +66,13 @@ function fetchPopularMoviesList() {
       return response.json();
     })
     .then(({ results }) => {
+
+
+      // console.log(results);
+      createCardFunc(results);
+      return results
+
+
       // test=====================
       console.dir(results);
       const mobileArr = results.slice(0, 4);
@@ -53,11 +89,32 @@ function fetchPopularMoviesList() {
         createCardFunc(mobileArr);
       }
       //
+
     });
 }
 fetchPopularMoviesList();
 
 // fetch запрос на список самых популярных фильмов на сегодня для создания коллекции на главной странице:
+
+// function fetchGenres() {
+//   const url =
+//     'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2';
+
+//   return fetch(url)
+//     .then(response => {
+//       // console.log(response);
+//       return response.json();
+//     })
+//     .then(({ genres }) => {
+//       // console.log(genres);
+//       // createCardFunc(genres);
+//     });
+// }
+// fetchGenres();
+
+// export default 
+
+
 function fetchGenres() {
   const url =
     'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2&perPage=5';
@@ -73,3 +130,4 @@ function fetchGenres() {
     });
 }
 fetchGenres();
+
