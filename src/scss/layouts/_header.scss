@@ -1,0 +1,282 @@
+<<<<<<< Updated upstream
+=======
+.header-background-home {
+  padding-top: 46px;
+  height: 230px;
+  max-width: 100%;
+
+  background-color: $primary-text-color;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/HeaderMobileHome.jpg);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/HeaderMobileHome@2x.jpg);
+  }
+
+  @include for-size(tablet-landscape) {
+    padding-top: 41px;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/HeaderTabletHome.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/HeaderTabletHome@2x.jpg);
+    }
+  }
+  @include for-size(desktop) {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/HeaderDesktopHome.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/HeaderDesktopHome@2x.jpg);
+    }
+  }
+}
+
+.header-background-library {
+  padding-top: 46px;
+  height: 230px;
+  max-width: 100%;
+
+  background-color: $primary-text-color;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/HeaderMobileLibrary.jpg);
+
+  @media screen and (min-device-pixel-ratio: 2),
+    screen and (min-resolution: 192dpi),
+    screen and (min-resolution: 2dppx) {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/HeaderMobileLibrary@2x.jpg);
+  }
+
+  @include for-size(tablet-landscape) {
+    padding-top: 41px;
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/HeaderTabletLibrary.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/HeaderTabletLibrary@2x.jpg);
+    }
+  }
+  @include for-size(desktop) {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0, 0.56),
+        rgba(0, 0, 0, 0.56)
+      ),
+      url(../images/HeaderDesktopLibrary.jpg);
+
+    @media screen and (min-device-pixel-ratio: 2),
+      screen and (min-resolution: 192dpi),
+      screen and (min-resolution: 2dppx) {
+      background-image: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0.56),
+          rgba(0, 0, 0, 0.56)
+        ),
+        url(../images/HeaderDesktopLibrary@2x.jpg);
+    }
+  }
+}
+
+.conteiner {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+
+  @include for-size(tablet-landscape) {
+    padding-left: 76px;
+    padding-right: 75px;
+  }
+  @include for-size(desktop) {
+    padding-left: 71px;
+    padding-right: 71px;
+  }
+}
+.title {
+  display: none;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 0;
+  margin-bottom: 5px;
+  color: $primary-white-color;
+
+  @include for-size(tablet-landscape) {
+    display: block;
+  }
+}
+.logo {
+  @include for-size(tablet-landscape) {
+    margin-top: 5px;
+    margin-right: 12px;
+  }
+}
+.logo-text {
+  display: flex;
+}
+.flex-conteiner {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+}
+.item {
+  margin-top: 17px;
+}
+.item:last-child {
+  margin-left: 40px;
+}
+// .item:first-child {
+//   margin-left: 112px;
+
+//   @include for-size(tablet-landscape) {
+//     margin-left: 303px;
+//   }
+//   @include for-size(desktop) {
+//     margin-left: 565px;
+//   }
+// }
+.item a {
+  border-bottom: 3px solid transparent;
+}
+.item a:hover {
+  border-bottom: 3px solid $accent-color;
+}
+.item a:active {
+  border-bottom: 3px solid $accent-color;
+}
+
+.nav-link {
+  color: $primary-white-color;
+  font-size: 12px;
+  font-weight: 500;
+  text-decoration: none;
+}
+.site-nav-list {
+  display: flex;
+
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.search-box-home {
+  display: block;
+  position: relative;
+  margin-top: 38px;
+
+  @include for-size(tablet-landscape) {
+    width: 336px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+.search-img {
+  position: absolute;
+  right: 0;
+  bottom: 6px;
+}
+.search-text {
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: $primary-white-color;
+  border-bottom: 1px solid $primary-white-color;
+}
+.form-button-library {
+  display: block;
+  margin-top: 45px;
+  text-align: center;
+}
+.is-hidden {
+  display: none;
+}
+.button-library:last-child {
+  margin-left: 12px;
+}
+.button-library {
+  font-family: inherit;
+  font-size: 12px;
+  color: $primary-white-color;
+  height: 44px;
+  width: 124px;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
+.button-library-active {
+  background-color: $accent-color;
+}
+.button-library-inactive {
+  background: transparent;
+  text-decoration: none;
+  border: 2px solid #ffffff;
+  outline: 5px;
+  // border-color: rgb(255, 255, 255);
+}
+
+::placeholder {
+  color: $primary-white-color;
+  font-size: 14px;
+  font-weight: 400;
+}
+>>>>>>> Stashed changes
