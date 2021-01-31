@@ -1,9 +1,6 @@
-
 //  получаем доступ к шаблону для отображения списка фильмов
 import templateListOfFilms from '../templates/list-films.hbs';
-import refs from '../js/refs'
-
-
+import refs from '../js/refs';
 
 // 1.2) 1initialHomePage.js:
 
@@ -23,7 +20,6 @@ import footer from '../html/footer.html';
 function createCardFunc(data, filmTitle) {
   const markup = templateListOfFilms(data, filmTitle);
 
-
   // встраиваем полученные данные в HTML документ
   refs.galleryRef.insertAdjacentHTML('beforeend', markup);
 }
@@ -39,10 +35,9 @@ function fetchPopularMoviesList() {
       return response.json();
     })
     .then(({ results }) => {
-
       // console.log(results);
-      createCardFunc(results);
-      return results
+      // createCardFunc(results);
+      // return results
 
       // test=====================
       console.dir(results);
@@ -59,8 +54,6 @@ function fetchPopularMoviesList() {
       } else {
         createCardFunc(mobileArr);
       }
-      //
-
     });
 }
 fetchPopularMoviesList();
@@ -83,8 +76,7 @@ fetchPopularMoviesList();
 // }
 // fetchGenres();
 
-// export default 
-
+// export default
 
 function fetchGenres() {
   const url =
@@ -101,4 +93,3 @@ function fetchGenres() {
     });
 }
 fetchGenres();
-
