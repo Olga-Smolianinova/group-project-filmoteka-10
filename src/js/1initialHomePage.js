@@ -23,7 +23,6 @@ import refs from './refs.js';
 const refs = {
   galleryRef: document.querySelector('.gallery'),
 };
-console.log(refs.galleryRef);
 
 
 const renderFilms = 0;
@@ -39,8 +38,8 @@ import footer from '../html/footer.html';
 
 =======
 // для отрисовки фильмов через template  в HTML
-function createCardFunc(data) {
-  const markup = templateListOfFilms(data);
+function createCardFunc(data, filmTitle) {
+  const markup = templateListOfFilms(data, filmTitle);
 
 
   // встраиваем полученные данные в HTML документ
@@ -63,14 +62,33 @@ function fetchPopularMoviesList() {
 
   return fetch(url)
     .then(response => {
-      // console.log(response);
+      console.log(response);
       return response.json();
     })
     .then(({ results }) => {
 
+
       // console.log(results);
       createCardFunc(results);
       return results
+
+
+      // test=====================
+      console.dir(results);
+      const mobileArr = results.slice(0, 4);
+      const tabletArr = results.slice(0, 8);
+      const desktopArr = results.slice(0, 9);
+
+      console.log(innerWidth); //visualViewport.width
+
+      if (innerWidth <= 1024) {
+        createCardFunc(desktopArr);
+      } else if ((innerWidth = 768 && innerWidth > 1024)) {
+        createCardFunc(tabletArr);
+      } else {
+        createCardFunc(mobileArr);
+      }
+      //
 
     });
 }
@@ -99,15 +117,15 @@ fetchPopularMoviesList();
 
 function fetchGenres() {
   const url =
-    'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2';
+    'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2&perPage=5';
 
   return fetch(url)
     .then(response => {
-      console.log(response);
+      // console.log(response);
       return response.json();
     })
     .then(({ genres }) => {
-      console.log(genres);
+      // console.log(genres);
       // createCardFunc(genres);
     });
 }
