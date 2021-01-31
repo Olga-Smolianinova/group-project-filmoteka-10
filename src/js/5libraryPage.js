@@ -58,7 +58,7 @@ function getArrWatchedFilms() { // получает масив из локал �
     if (localStorage.getItem('watched')) {
         const arrString = localStorage.getItem('watched');
         const arrPars = JSON.parse(arrString);
-        arrWatchedFilms = [...arrPars]
+        return arrWatchedFilms = [...arrPars]
     }
     return
 }
@@ -67,8 +67,14 @@ function getArrQueueFilms() { // получает масив из локал с�
     if (localStorage.getItem('queue')) {
         const arrString = localStorage.getItem('queue');
         const arrPars = JSON.parse(arrString);
-        arrQueueFilms = [...arrPars]
+        return arrQueueFilms = [...arrPars]
     }
     return
 }
+
+// ==========Логика для отрисовки "Просмотренных" фильмов===========
+
+// const arrArrWatchedFilms = getArrWatchedFilms();// масив "Просмотренных фильмов"
+// console.log(arrArrWatchedFilms);
+
 
