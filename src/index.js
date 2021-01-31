@@ -11,9 +11,8 @@ import './js/4filmDetailsPage.js';
 
 import './js/5libraryPage';
 
+import './js/header.js';
+
 import './js/footer';
 
 import './js/notification.js';
-
-import './js/header.js'
-

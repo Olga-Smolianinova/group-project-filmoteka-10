@@ -1,8 +1,8 @@
 import markupFooter from '../html/footer.html';
-import refs from '../js/refs'
 
-refs.footer.insertAdjacentHTML('afterend', markupFooter)
+import refs from './refs.js';
 
+refs.footer.insertAdjacentHTML('afterend', markupFooter);
 
 // =====================================>
 const openModalRef = document.querySelector('.link-modal');
