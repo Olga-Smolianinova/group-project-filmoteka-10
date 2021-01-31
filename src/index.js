@@ -13,9 +13,10 @@ import './js/4filmDetailsPage.js';
 
 import './js/5libraryPage';
 
-<<<<<<< Updated upstream
-=======
 import './js/footer';
 
->>>>>>> Stashed changes
+import './js/header.js';
+
+import './js/footer';
+
 import './js/notification.js';

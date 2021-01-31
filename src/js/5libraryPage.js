@@ -1,8 +1,8 @@
-<<<<<<< Updated upstream
-=======
+
 import markupFilms from '../html/myFilmLibraryPage.html';
 import refs from '../js/refs'
 import templateListOfFilms from '../templates/my-library.hbs';
+
 
 // ---------------------------
 refs.main.insertAdjacentHTML('afterend', markupFilms)// тестовая розметка для фильмов
@@ -77,6 +77,7 @@ function getArrQueueFilms() { // получает масив из локал с�
 
 // ==========Логика для отрисовки "Просмотренных" фильмов===========
 
+
 const arrArrWatchedFilms = getArrWatchedFilms();// масив "Просмотренных фильмов"
 
 function fetchMoviesForId(movie_id) {// ищет фильмы по ID
@@ -113,4 +114,4 @@ function addClassMyLibrary() {
     refs.bntlibrary.classList.remove('is-hidden');
     refs.inpuForm.classList.add('is-hidden');
 }
->>>>>>> Stashed changes
+

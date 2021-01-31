@@ -1,10 +1,12 @@
-<<<<<<< Updated upstream
-=======
+
 //  получаем доступ к шаблону для отображения списка фильмов
 import templateListOfFilms from '../templates/list-films.hbs';
 import refs from '../js/refs'
 
->>>>>>> Stashed changes
+//  получаем доступ к шаблону для отображения списка фильмов
+import templateListOfFilms from '../templates/list-films.hbs';
+
+
 // 1.2) 1initialHomePage.js:
 
 // - создаем глобальные переменные renderFilms и genres, pageNumber (будет использоваться в запросе при плагинации);
@@ -13,36 +15,41 @@ import refs from '../js/refs'
 // - создаем функцию fetchGenres которая забирает жанры и кладет их в переменную genres (она понадобится в работе следующим участникам);
 // - запускаем функцию fetchPopularMoviesList и fetchGenres.
 
-<<<<<<< Updated upstream
-// Доступ к элементам
+
 import refs from './refs.js';
 
-// Доступ к html <ul class="gallery"></ul>
-=======
-// // Доступ к html <ul class="gallery"></ul>
 
->>>>>>> Stashed changes
+// // Доступ к html <ul class="gallery"></ul>
+const refs = {
+  galleryRef: document.querySelector('.gallery'),
+};
+console.log(refs.galleryRef);
+
 
 const renderFilms = 0;
 const genres = 0;
 const pageNumber = 1;
 
-<<<<<<< Updated upstream
+
 function createCardFunc(imgPath, filmTitle, movieId) {
   //
 }
 
 import footer from '../html/footer.html';
-console.log(footer);
 
-// const footers = document.querySelector('.container');
-// console.log(footers);
+=======
+// для отрисовки фильмов через template  в HTML
+function createCardFunc(data) {
+  const markup = templateListOfFilms(data);
 
-const gallery = document.querySelector('.gallery');
-console.log(gallery);
+
+  // встраиваем полученные данные в HTML документ
+  refs.galleryRef.insertAdjacentHTML('beforeend', markup);
+}
+
 
 gallery.insertAdjacentHTML('beforeend', footer);
-=======
+
 function createCardFunc(data) {
   const markup = templateListOfFilms(data);
   
@@ -60,14 +67,17 @@ function fetchPopularMoviesList() {
       return response.json();
     })
     .then(({ results }) => {
+
       // console.log(results);
       createCardFunc(results);
       return results
+
     });
 }
 fetchPopularMoviesList();
 
 // fetch запрос на список самых популярных фильмов на сегодня для создания коллекции на главной странице:
+
 // function fetchGenres() {
 //   const url =
 //     'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2';
@@ -85,4 +95,21 @@ fetchPopularMoviesList();
 // fetchGenres();
 
 // export default 
->>>>>>> Stashed changes
+
+
+function fetchGenres() {
+  const url =
+    'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2';
+
+  return fetch(url)
+    .then(response => {
+      console.log(response);
+      return response.json();
+    })
+    .then(({ genres }) => {
+      console.log(genres);
+      // createCardFunc(genres);
+    });
+}
+fetchGenres();
+

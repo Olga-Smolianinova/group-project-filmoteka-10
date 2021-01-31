@@ -1,14 +1,13 @@
-<<<<<<< Updated upstream
-.container {
-  background-color: yellow;
-}
-=======
+
+
 @mixin centeredFlex() {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
+
+
 .footer-text {
   font-size: 14px;
   line-height: 19px;
@@ -90,7 +89,9 @@
       }
     }
 
+
     .item-footer {
+
       font-weight: 500;
       font-size: 12px;
       line-height: 16px;
@@ -122,4 +123,4 @@
     }
   }
 }
->>>>>>> Stashed changes
+
