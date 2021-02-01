@@ -8,7 +8,7 @@
 // - создаем функция plaginationNavigation принимающую ивент, по id она определяет какая из кнопок была нажат и в зависимости от этого по разному отрабатывает изменяя при этом глобальные переменные pageNumber, прорисовуя его в контейнере в DOM и запускает на пустую строчку inputValue функцию fetchPopularMoviesList или fetchFilms;
 // - кнопка назад должна исчезать когда текущее количество страниц “1” и появляться при “2” и более; - вешаем слушателем функцию plaginationNavigation на кнопки вперед и назад.
 
-const searchQuery = 'woman';
+const searchQuery = 'winter';
 
 function fetchFilms() {
   const url = `https://api.themoviedb.org/3/search/movie?api_key=a524e22e3630cf24a2e0a24a461145a2&query=${searchQuery}`;

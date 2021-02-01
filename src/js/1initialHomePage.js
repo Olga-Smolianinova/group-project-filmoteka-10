@@ -17,8 +17,8 @@ const pageNumber = 1;
 import footer from '../html/footer.html';
 
 // для отрисовки фильмов через template  в HTML
-function createCardFunc(data, filmTitle) {
-  const markup = templateListOfFilms(data, filmTitle);
+function createCardFunc(imgPath, filmTitle, movieId) {
+  const markup = templateListOfFilms(imgPath, filmTitle, movieId);
 
   // встраиваем полученные данные в HTML документ
   refs.galleryRef.insertAdjacentHTML('beforeend', markup);
@@ -31,16 +31,16 @@ function fetchPopularMoviesList() {
 
   return fetch(url)
     .then(response => {
-      console.log(response);
+      // console.log(response);
       return response.json();
     })
     .then(({ results }) => {
-      // console.log(results);
+      console.log(results);
       // createCardFunc(results);
       // return results
 
-      // test=====================
-      console.log(results);
+      // test======для верстки MobileFirst====================
+      // console.log(results);
       const mobileArr = results.slice(0, 4);
       // console.log(mobileArr);
       const tabletArr = results.slice(0, 8);
@@ -59,6 +59,7 @@ function fetchPopularMoviesList() {
         createCardFunc(mobileArr);
       }
     });
+  // =====================================================
 }
 fetchPopularMoviesList();
 
@@ -92,8 +93,18 @@ function fetchGenres() {
       return response.json();
     })
     .then(({ genres }) => {
-      // console.log(genres);
+      console.log(genres);
       // createCardFunc(genres);
     });
 }
-// fetchGenres();
+fetchGenres();
+
+// СЛУШАТЕЛИ СОБЫТИЙ
+// для открытия и закрытия модального окна вешаем слушателя событий на родителя li - это ul -refs.container
+const onGalleryClick = refs.galleryRef.addEventListener('click', onOpenModal);
+
+function onOpenModal(event) {
+  const largeImageUrl = event.target;
+  console.log(largeImageUrl);
+  console.log(event.target.dataset.action);
+}
