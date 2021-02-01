@@ -96,4 +96,4 @@ function fetchGenres() {
       // createCardFunc(genres);
     });
 }
-fetchGenres();
+// fetchGenres();
