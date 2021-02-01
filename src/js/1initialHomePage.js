@@ -40,16 +40,20 @@ function fetchPopularMoviesList() {
       // return results
 
       // test=====================
-      console.dir(results);
+      console.log(results);
       const mobileArr = results.slice(0, 4);
+      // console.log(mobileArr);
       const tabletArr = results.slice(0, 8);
+      // console.log(tabletArr);
       const desktopArr = results.slice(0, 9);
+      // console.log(desktopArr);
 
-      console.log(innerWidth); //visualViewport.width
+      console.log(innerWidth);
+      console.log(visualViewport.width); //visualViewport.width
 
-      if (innerWidth <= 1024) {
+      if (innerWidth >= 1024) {
         createCardFunc(desktopArr);
-      } else if ((innerWidth = 768 && innerWidth > 1024)) {
+      } else if (innerWidth >= 768 && innerWidth <= 1023) {
         createCardFunc(tabletArr);
       } else {
         createCardFunc(mobileArr);

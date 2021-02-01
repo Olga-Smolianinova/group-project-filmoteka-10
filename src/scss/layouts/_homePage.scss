@@ -26,11 +26,16 @@
   }
 }
 // Made of Olga/Стили для ../templates/list-films.hbs
+.no-style {
+  display: none;
+}
 .film-element {
   // li
   margin-bottom: 20px;
+
   img {
     width: 100%;
+    border-radius: 5px;
   }
   @include for-size(tablet-landscape) {
     width: calc((100% - 1 * 30px) / 2);
@@ -61,8 +66,23 @@
 }
 .film-title {
   //h3
-  color: $primary-text-color;
+  margin-bottom: 5px;
+  text-transform: uppercase;
 }
 .film-text {
   color: $accent-color;
+}
+
+.vote-average {
+  // p vote-average
+  display: inline-block;
+  margin-left: 10px;
+  padding-top: 1px;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 1.16;
+  color: $primary-white-color;
+  background-color: $accent-color;
 }
