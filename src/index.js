@@ -5,6 +5,8 @@ import './scss/main.scss';
 
 import './js/header.js';
 
+import './js/0apiServise.js';
+
 import './js/1initialHomePage.js';
 
 import './js/2searchAndPlaginationHomePage.js';
