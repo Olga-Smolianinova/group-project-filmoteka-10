@@ -17,6 +17,8 @@ import './js/4filmDetailsPage.js';
 
 import './js/5libraryPage';
 
+import './js/one-film';
+
 import './js/footer';
 
 import './js/notification.js';

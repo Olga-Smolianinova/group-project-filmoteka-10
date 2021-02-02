@@ -1,4 +1,5 @@
 const refs = {
+
   gallery: document.querySelector('.gallery'),
 
   footer: document.querySelector('footer'),
@@ -8,5 +9,6 @@ const refs = {
   backgroundHome: document.querySelector('.header-container'),
   bntlibrary: document.querySelector('.form-button-library'),
   inputForm: document.querySelector('.search-box-home'),
+  
 };
 export default refs;
