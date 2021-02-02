@@ -8,11 +8,7 @@ const refs = {
   myLibraryBtn: document.querySelector('.library'),
   backgroundHome: document.querySelector('.header-container'),
   bntlibrary: document.querySelector('.form-button-library'),
-  inpuForm: document.querySelector('.search-box-home'),
+  inputForm: document.querySelector('.search-box-home'),
   
-
-
-  
-
 };
 export default refs;

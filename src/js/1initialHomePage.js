@@ -81,10 +81,9 @@ function fetchPopularMoviesList() {
       // console.log(tabletArr);
       const desktopArr = results.slice(0, 9);
       // console.log(desktopArr);
-
+    
       // console.log(innerWidth);
-      // console.log(visualViewport.width); //visualViewport.width
-
+      // console.log(visualViewport.width); //visualViewport.widt
       if (innerWidth >= 1024) {
         createCardFunc(desktopArr);
       } else if (innerWidth >= 768 && innerWidth <= 1023) {
@@ -98,24 +97,21 @@ function fetchPopularMoviesList() {
 // fetchPopularMoviesList();
 
 // fetch запрос на список самых популярных фильмов на сегодня для создания коллекции на главной странице:
+function fetchGenres() {
+  const url =
+    'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2&perPage=5';
 
-// function fetchGenres() {
-//   const url =
-//     'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2';
-
-//   return fetch(url)
-//     .then(response => {
-//       // console.log(response);
-//       return response.json();
-//     })
-//     .then(({ genres }) => {
-//       // console.log(genres);
-//       // createCardFunc(genres);
-//     });
-// }
-// fetchGenres();
-
-// export default
+  return fetch(url)
+    .then(response => {
+      // console.log(response);
+      return response.json();
+    })
+    .then(({ genres }) => {
+      console.log(genres);
+      // createCardFunc(genres);
+    });
+}
+fetchGenres();
 
 // СЛУШАТЕЛИ СОБЫТИЙ
 // для открытия и закрытия модального окна вешаем слушателя событий на родителя li - это ul -refs.container
@@ -126,3 +122,16 @@ function onOpenModal(event) {
   console.log(largeImageUrl);
   console.log(event.target.dataset.action);
 }
+
+// СЛУШАТЕЛИ СОБЫТИЙ
+// для открытия и закрытия модального окна вешаем слушателя событий на родителя li - это ul -refs.container
+const onGalleryClick = refs.galleryRef.addEventListener('click', onOpenModal);
+
+function onOpenModal(event) {
+  const largeImageUrl = event.target;
+  console.log(largeImageUrl);
+  console.log(event.target.dataset.action);
+}
+
+export default createCardFunc;
+
