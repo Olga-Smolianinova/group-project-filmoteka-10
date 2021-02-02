@@ -8,14 +8,16 @@
         <p class="film-text"></p>
 
         {{!-- вывести жанры--{{vote_average}} отображается только в My Library! --}}
-        {{#each genre_ids}}
-        <p class="film-text"> {{name}}
-            {{/each}}
-
-
-            <span>| {{release_date}}</span>
+        <p>
+            {{#each genre_ids}}
+            <span class="film-text"> {{name}}
+                {{/each}}
+            </span>
+            <span class="film-text">| {{release_date}}</span>
             <span class="vote-average">{{vote_average}}</span>
         </p>
+
+
 
     </div>
 </li>
