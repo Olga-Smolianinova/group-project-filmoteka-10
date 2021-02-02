@@ -40,7 +40,7 @@ function fetchGenres() {
     })
     .then(gen => {
       genres = gen.genres;
-      console.log(genres);
+      // console.log(genres);
       fetchPopularMoviesList();
     });
 }
@@ -74,36 +74,40 @@ function fetchPopularMoviesList() {
       // return results
 
       // test======для верстки MobileFirst====================
-      // console.log(results);
-      const mobileArr = results.slice(0, 4);
-      // console.log(mobileArr);
-      const tabletArr = results.slice(0, 8);
-      // console.log(tabletArr);
-      const desktopArr = results.slice(0, 9);
-      // console.log(desktopArr);
-
-      // console.log(innerWidth);
-      // console.log(visualViewport.width); //visualViewport.widt
-      if (innerWidth >= 1024) {
-        createCardFunc(desktopArr);
-      } else if (innerWidth >= 768 && innerWidth <= 1023) {
-        createCardFunc(tabletArr);
-      } else {
-        createCardFunc(mobileArr);
-      }
+      arrQuantity(results);
     });
   // =====================================================
 }
-// fetchPopularMoviesList();
+
+// Функция для отрисовки количество картинок на странице, в зависимости от ширины экрана
+function arrQuantity(results) {
+  const mobileArr = results.slice(0, 4);
+  // console.log(mobileArr);
+  const tabletArr = results.slice(0, 8);
+  // console.log(tabletArr);
+  const desktopArr = results.slice(0, 9);
+  // console.log(desktopArr);
+
+  // console.log(innerWidth);
+  // console.log(visualViewport.width); //visualViewport.width
+
+  if (innerWidth >= 1024) {
+    createCardFunc(desktopArr);
+  } else if (innerWidth >= 768 && innerWidth <= 1023) {
+    createCardFunc(tabletArr);
+  } else {
+    createCardFunc(mobileArr);
+  }
+}
 
 // СЛУШАТЕЛИ СОБЫТИЙ
 // для открытия и закрытия модального окна вешаем слушателя событий на родителя li - это ul -refs.container
-const onGalleryClick = refs.galleryRef.addEventListener('click', onOpenModal);
+// const onGalleryClick = refs.galleryRef.addEventListener('click', onOpenModal);
 
-function onOpenModal(event) {
-  const largeImageUrl = event.target;
-  console.log(largeImageUrl);
-  console.log(event.target.dataset.action);
-}
+// function onOpenModal(event) {
+//   const largeImageUrl = event.target;
+//   console.log(largeImageUrl);
+//   console.log(event.target.dataset.action);
+// }
 
-export default createCardFunc;
+export { createCardFunc, fetchPopularMoviesList, arrQuantity };
