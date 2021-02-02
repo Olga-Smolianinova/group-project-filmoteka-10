@@ -1,3 +1,4 @@
+
 // Доступы к элементам
 import refs from './refs.js';
 
@@ -59,3 +60,4 @@ function onFetchSearch() {
   //   behavior: 'smooth',
   // });
 }
+
