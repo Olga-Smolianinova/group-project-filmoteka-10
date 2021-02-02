@@ -63,7 +63,8 @@ function getArrWatchedFilms() { // получает масив из локал �
         const arrPars = JSON.parse(arrString);
         return arrWatchedFilms = [...arrPars]
     }
-    return
+    // alert('hello')
+    return []
 }
 
 function getArrQueueFilms() { // получает масив из локал сторедж
@@ -72,7 +73,7 @@ function getArrQueueFilms() { // получает масив из локал с�
         const arrPars = JSON.parse(arrString);
         return arrQueueFilms = [...arrPars]
     }
-    return
+    return []
 }
 
 // ==========Логика для отрисовки "Просмотренных" фильмов===========
@@ -81,6 +82,7 @@ function getArrQueueFilms() { // получает масив из локал с�
 const arrArrWatchedFilms = getArrWatchedFilms();// масив "Просмотренных фильмов"
 
 function fetchMoviesForId(movie_id) {// ищет фильмы по ID
+    console.log(movie_id);
   const url =
     `https://api.themoviedb.org/3/movie/${movie_id}?api_key=a524e22e3630cf24a2e0a24a461145a2`;
 
@@ -88,31 +90,45 @@ function fetchMoviesForId(movie_id) {// ищет фильмы по ID
     .then(response => {
       return response.json();
     })
-      .then(results=> {
+        .then(results => {
+          console.log(results);
           const markup = templateListOfFilms(results);
         refs.galleryRef.insertAdjacentHTML('beforeend', markup);
     });
 }
 
 function clickBtn(evt) {// делает розметку в мейн фильмов из локал сторедж "просмотренные"
+    activeBorderOn()
     addClassMyLibrary()
     evt.preventDefault();
     refs.galleryRef.innerHTML = ''
+    // console.log(arrArrWatchedFilms);
     arrArrWatchedFilms.map(film => {
         fetchMoviesForId(film)
     })
-
-    
 }
 
 refs.myLibraryBtn.addEventListener('click', clickBtn)
+refs.queueBtn.addEventListener('click', activeBtnInLibrary)
 
 
-function addClassMyLibrary() {
+function addClassMyLibrary() { // добавляет/убирает классы в хедере для правильной отрисовки 
     refs.backgroundHome.classList.remove('header-background-home');
     refs.backgroundHome.classList.add('header-background-library');
 
     refs.bntlibrary.classList.remove('is-hidden');
     refs.inpuForm.classList.add('is-hidden');
+}
+
+function activeBorderOn() { //   добавляет/убирает подчеркивание на HOME и MY LIBRERY 
+    // evt.preventDefault();
+    refs.homeBtn.classList.toggle('active-el')
+    refs.myLibraryBtn.classList.toggle('active-el')
+}
+
+function activeBtnInLibrary() { //добавляет/убирает классы для кнопок в моей бибилиотеке
+    evt.preventDefault();
+    refs.watchedBtn.classList.remove('active-btn')
+    refs.queueBtn.classList.add('active-btn')
 }
 

@@ -9,6 +9,10 @@ const refs = {
   backgroundHome: document.querySelector('.header-container'),
   bntlibrary: document.querySelector('.form-button-library'),
   inpuForm: document.querySelector('.search-box-home'),
+  homeBtn: document.querySelector('.home-link'),
+  watchedBtn: document.querySelector('.button-library-active'),
+  queueBtn: document.querySelector('.button-library-inactive'),
+
   
 
 

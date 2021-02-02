@@ -194,13 +194,18 @@
 // }
 .item a {
   border-bottom: 3px solid transparent;
+
+  &.active-el {
+    border-bottom: 3px solid $accent-color;
+  }
 }
-.item a:hover {
-  border-bottom: 3px solid $accent-color;
-}
-.item a:active {
-  border-bottom: 3px solid $accent-color;
-}
+
+// .item a:hover {
+//   border-bottom: 3px solid $accent-color;
+// }
+// .item a:active {
+//   border-bottom: 3px solid $accent-color;
+// }
 
 .nav-link {
   color: $primary-white-color;
@@ -240,7 +245,6 @@
   border-bottom: 1px solid $primary-white-color;
 }
 .form-button-library {
-
   display: block;
   margin-top: 45px;
   text-align: center;
