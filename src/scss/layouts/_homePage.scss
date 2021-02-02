@@ -1,12 +1,89 @@
+// HTML <ul class="gallery"></ul>
+.container {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  // padding-left: 20px;
+  // padding-right: 20px;
+
+  //   @include for-size(tablet-landscape) {
+  //     width: 768px;
+  //     padding-left: 40px;
+  //     padding-right: 40px;
+  //   }
+
+  //   @include for-size(desktop) {
+  //     width: 1024px;
+  //     padding-left: 20px;
+  //     padding-right: 20px;
+  //   }
+}
+
+.gallery {
+  @include for-size(tablet-landscape) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
 // Made of Olga/Стили для ../templates/list-films.hbs
+.no-style {
+  display: none;
+}
+.film-element {
+  // li
+  margin-bottom: 20px;
+
+  img {
+    width: 100%;
+    border-radius: 5px;
+    background-color: $secondary-background-color;
+  }
+  @include for-size(tablet-landscape) {
+    width: calc((100% - 1 * 30px) / 2);
+    margin-right: 30px;
+    margin-bottom: 30px;
+
+    &:nth-child(2n) {
+      margin-right: 0;
+    }
+  }
+  @include for-size(desktop) {
+    width: calc((100% - 2 * 30px) / 3);
+    margin-right: 30px;
+    // margin-bottom: 30px;
+
+    &:nth-child(2n) {
+      margin-right: 30px;
+    }
+    &:nth-child(3n) {
+      margin-right: 0;
+    }
+  }
+}
+
 .film-sign {
   //div
   padding: 10px 0 20px;
 }
 .film-title {
   //h3
-  color: $primary-text-color;
+  margin-bottom: 5px;
+  text-transform: uppercase;
 }
 .film-text {
   color: $accent-color;
+}
+
+.vote-average {
+  // p vote-average
+  display: inline-block;
+  margin-left: 10px;
+  padding-top: 1px;
+  width: 36px;
+  height: 16px;
+  border-radius: 5px;
+  text-align: center;
+  line-height: 1.16;
+  color: $primary-white-color;
+  background-color: $accent-color;
 }

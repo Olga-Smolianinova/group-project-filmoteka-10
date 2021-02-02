@@ -1,3 +1,7 @@
+//  получаем доступ к шаблону для отображения списка фильмов
+import templateListOfFilms from '../templates/list-films.hbs';
+import refs from '../js/refs';
+
 // 1.2) 1initialHomePage.js:
 
 // - создаем глобальные переменные renderFilms и genres, pageNumber (будет использоваться в запросе при плагинации);
@@ -6,26 +10,101 @@
 // - создаем функцию fetchGenres которая забирает жанры и кладет их в переменную genres (она понадобится в работе следующим участникам);
 // - запускаем функцию fetchPopularMoviesList и fetchGenres.
 
-// Доступ к элементам
-import refs from './refs.js';
-
-// Доступ к html <ul class="gallery"></ul>
-
 const renderFilms = 0;
 const genres = 0;
 const pageNumber = 1;
 
+import footer from '../html/footer.html';
+
+// для отрисовки фильмов через template  в HTML
 function createCardFunc(imgPath, filmTitle, movieId) {
-  //
+  const markup = templateListOfFilms(imgPath, filmTitle, movieId);
+
+  // встраиваем полученные данные в HTML документ
+  refs.galleryRef.insertAdjacentHTML('beforeend', markup);
 }
 
-import footer from '../html/footer.html';
-console.log(footer);
+// fetch запрос на список самых популярных фильмов на сегодня для создания коллекции на главной странице:
+function fetchPopularMoviesList() {
+  const url =
+    'https://api.themoviedb.org/3/trending/movie/day?api_key=a524e22e3630cf24a2e0a24a461145a2';
 
-// const footers = document.querySelector('.container');
-// console.log(footers);
+  return fetch(url)
+    .then(response => {
+      // console.log(response);
+      return response.json();
+    })
+    .then(({ results }) => {
+      console.log(results);
+      // createCardFunc(results);
+      // return results
 
-const gallery = document.querySelector('.gallery');
-console.log(gallery);
+      // test======для верстки MobileFirst====================
+      // console.log(results);
+      const mobileArr = results.slice(0, 4);
+      // console.log(mobileArr);
+      const tabletArr = results.slice(0, 8);
+      // console.log(tabletArr);
+      const desktopArr = results.slice(0, 9);
+      // console.log(desktopArr);
 
-gallery.insertAdjacentHTML('beforeend', footer);
+      console.log(innerWidth);
+      console.log(visualViewport.width); //visualViewport.width
+
+      if (innerWidth >= 1024) {
+        createCardFunc(desktopArr);
+      } else if (innerWidth >= 768 && innerWidth <= 1023) {
+        createCardFunc(tabletArr);
+      } else {
+        createCardFunc(mobileArr);
+      }
+    });
+  // =====================================================
+}
+fetchPopularMoviesList();
+
+// fetch запрос на список самых популярных фильмов на сегодня для создания коллекции на главной странице:
+
+// function fetchGenres() {
+//   const url =
+//     'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2';
+
+//   return fetch(url)
+//     .then(response => {
+//       // console.log(response);
+//       return response.json();
+//     })
+//     .then(({ genres }) => {
+//       // console.log(genres);
+//       // createCardFunc(genres);
+//     });
+// }
+// fetchGenres();
+
+// export default
+
+function fetchGenres() {
+  const url =
+    'https://api.themoviedb.org/3/genre/movie/list?api_key=a524e22e3630cf24a2e0a24a461145a2&perPage=5';
+
+  return fetch(url)
+    .then(response => {
+      // console.log(response);
+      return response.json();
+    })
+    .then(({ genres }) => {
+      console.log(genres);
+      // createCardFunc(genres);
+    });
+}
+fetchGenres();
+
+// СЛУШАТЕЛИ СОБЫТИЙ
+// для открытия и закрытия модального окна вешаем слушателя событий на родителя li - это ul -refs.container
+const onGalleryClick = refs.galleryRef.addEventListener('click', onOpenModal);
+
+function onOpenModal(event) {
+  const largeImageUrl = event.target;
+  console.log(largeImageUrl);
+  console.log(event.target.dataset.action);
+}
