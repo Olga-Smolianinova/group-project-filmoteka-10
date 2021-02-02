@@ -95,13 +95,14 @@ function fetchMoviesForId(movie_id) {// ищет фильмы по ID
 }
 
 function clickBtn(evt) {// делает розметку в мейн фильмов из локал сторедж "просмотренные"
+    addClassMyLibrary()
     evt.preventDefault();
     refs.galleryRef.innerHTML = ''
     arrArrWatchedFilms.map(film => {
         fetchMoviesForId(film)
     })
 
-    addClassMyLibrary()
+    
 }
 
 refs.myLibraryBtn.addEventListener('click', clickBtn)
