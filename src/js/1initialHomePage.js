@@ -73,7 +73,7 @@ function fetchGenres() {
       return response.json();
     })
     .then(({ genres }) => {
-      // console.log(genres);
+      console.log(genres);
       // createCardFunc(genres);
     });
 }
