@@ -1,22 +1,21 @@
 {{#each this}}
 <li class="film-element">
     {{!-- <img src={{poster_path}} alt=''> --}}
-    <img src="https://image.tmdb.org/t/p/w300{{poster_path}}" alt="{{ title }}" data-action={{id}}>
+    <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{ title }}" data-action={{id}}>
     <div class="film-sign">
         <h3 class="film-title">{{original_title}}</h3>
 
         <p class="film-text"></p>
 
         {{!-- вывести жанры--{{vote_average}} отображается только в My Library! --}}
-        {{#each this}}
-        <p class="film-text"> {{name}}
-            {{/each}}
-
-
-            <span>| {{release_date}}</span>
+        <p>
+            {{#each genre_ids}}
+            <span class="film-text genre"> {{name}}
+                {{/each}}
+            </span>
+            <span class="film-text">| {{release_date}}</span>
             <span class="vote-average">{{vote_average}}</span>
         </p>
-
     </div>
 </li>
 {{/each}}

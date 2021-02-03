@@ -163,6 +163,7 @@
   }
 }
 .logo {
+  cursor: pointer;
   @include for-size(tablet-landscape) {
     margin-top: 5px;
     margin-right: 12px;
