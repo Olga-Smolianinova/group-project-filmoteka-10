@@ -12,6 +12,10 @@ const refs = {
   inputForm: document.querySelector('.search-box-home'),
   logo: document.querySelector('.logo'),
 
+  // img
+  genreList: document.querySelector('.film-sign'),
+
   // Модальне вікно
 };
+
 export default refs;
