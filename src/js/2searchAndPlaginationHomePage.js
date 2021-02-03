@@ -8,11 +8,7 @@ import apiServise from './0apiServise.js';
 import templateListOfFilms from '../templates/list-films.hbs';
 
 // доступ к функция
-import {
-  createCardFunc,
-  fetchPopularMoviesList,
-  arrQuantity,
-} from './1initialHomePage.js';
+import { createCardFunc, arrQuantity } from './1initialHomePage.js';
 
 // 2.2) 2searchAndPlaginationHomePage.js:
 // - не забываем в верстке параграф под формой для отображения ошибки на некорректный запрос, берем его из DOM;
@@ -53,11 +49,11 @@ function onFetchSearch() {
     console.log(results);
 
     // обрабатываем данные с бекенда и встраиваем их в шаблон с помощью функции createCardFunc(), работа которой прописана в файле 1initialHomePage.js
-    createCardFunc(results);
+    // createCardFunc(results);
 
     // // Функция для отрисовки количество картинок на странице, в зависимости от ширины экрана
     arrQuantity(results);
-    console.log(arrQuantity);
+    // console.log(arrQuantity);
   });
 
   // window.scrollTo({
