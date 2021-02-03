@@ -110,4 +110,3 @@ function arrQuantity(results) {
 //   console.log(event.target.dataset.action);
 // }
 
-export { createCardFunc, fetchPopularMoviesList, arrQuantity };
