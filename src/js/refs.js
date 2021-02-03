@@ -9,9 +9,14 @@ const refs = {
   homeBtn: document.querySelector('.home'),
   backgroundHome: document.querySelector('.header-container'),
   bntlibrary: document.querySelector('.form-button-library'),
+  inpuForm: document.querySelector('.search-box-home'),
+  homeBtn: document.querySelector('.home-link'),
+  watchedBtn: document.querySelector('.button-library-active'),
+  queueBtn: document.querySelector('.button-library-inactive'),
   inputForm: document.querySelector('.search-box-home'),
   logo: document.querySelector('.logo'),
+  genreList: document.querySelector('.film-sign'),
 
-  // Модальне вікно
 };
+
 export default refs;

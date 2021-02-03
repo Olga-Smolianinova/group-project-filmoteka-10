@@ -1,6 +1,6 @@
 //  получаем доступ к шаблону для отображения списка фильмов
 import templateListOfFilms from '../templates/list-films.hbs';
-import refs from '../js/refs';
+import refs from '../js/refs.js';
 
 // 1.2) 1initialHomePage.js:
 
@@ -50,6 +50,17 @@ fetchGenres();
 //   .querySelector('.button-test')
 //   .addEventListener('click', () => console.log(genres));
 
+// fetch for configuration
+function fetchConfig() {
+  const url =
+    'https://api.themoviedb.org/3/configuration?api_key=a524e22e3630cf24a2e0a24a461145a2';
+
+  return fetch(url).then(response =>
+    response.json().then(data => console.log(data)),
+  );
+}
+fetchConfig();
+
 // fetch запрос на список самых популярных фильмов на сегодня для создания коллекции на главной странице:
 function fetchPopularMoviesList() {
   const url =
@@ -68,7 +79,7 @@ function fetchPopularMoviesList() {
       );
       // .map(item2 => item2 * 10));
       // const aa = results.map(item => 10);
-      console.log(results);
+      // console.log(results);
 
       // createCardFunc(results);
       // return results
@@ -81,6 +92,7 @@ function fetchPopularMoviesList() {
 
 // Функция для отрисовки количество картинок на странице, в зависимости от ширины экрана
 function arrQuantity(results) {
+  // console.log(results);
   const mobileArr = results.slice(0, 4);
   // console.log(mobileArr);
   const tabletArr = results.slice(0, 8);
@@ -106,7 +118,13 @@ function arrQuantity(results) {
 
 // function onOpenModal(event) {
 //   const largeImageUrl = event.target;
-//   console.log(largeImageUrl);
-//   console.log(event.target.dataset.action);
+//   // console.dir(largeImageUrl);
+//   // console.log(event.target.dataset.action);
+
 // }
+
+
+export { createCardFunc, fetchPopularMoviesList, arrQuantity };
+// const genreList = document.querySelector('span.genre');
+// console.log(genreList);
 
