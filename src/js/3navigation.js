@@ -1,5 +1,5 @@
 import refs from '../js/refs'
-import {createCardFunc, fetchPopularMoviesList} from './1initialHomePage.js'
+import {createCardFunc, fetchPopularMoviesList, arrQuantity} from './1initialHomePage.js'
 
 refs.homeBtn.addEventListener("click", activeHomePage)
 refs.logo.addEventListener("click", activeHomePage)
@@ -9,6 +9,7 @@ function activeHomePage(event) {
     refs.galleryRef.innerHTML = ''
     createCardFunc()
     fetchPopularMoviesList()
+    arrQuantity()
     
     addClassHome()
 }
