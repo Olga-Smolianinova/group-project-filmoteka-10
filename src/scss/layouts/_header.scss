@@ -268,14 +268,24 @@
 }
 
 .button-library-active {
-  background-color: $accent-color;
+  // background-color: $accent-color;
+  background: transparent;
+  text-decoration: none;
+  border: 2px solid #ffffff;
+  outline: 5px;
 }
+
 .button-library-inactive {
   background: transparent;
   text-decoration: none;
   border: 2px solid #ffffff;
   outline: 5px;
   // border-color: rgb(255, 255, 255);
+}
+
+.active-btn {
+  background-color: $accent-color;
+  border: 0;
 }
 
 ::placeholder {

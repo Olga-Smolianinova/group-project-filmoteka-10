@@ -1,7 +1,11 @@
 
+// import { from } from 'core-js/fn/array';
 import markupFilms from '../html/myFilmLibraryPage.html';
 import refs from '../js/refs'
 import templateListOfFilms from '../templates/my-library.hbs';
+import showNot from '../js/notification';
+// import showError from '../js/notification';
+
 
 
 // ---------------------------
@@ -63,7 +67,7 @@ function getArrWatchedFilms() { // получает масив из локал �
         const arrPars = JSON.parse(arrString);
         return arrWatchedFilms = [...arrPars]
     }
-    // alert('hello')
+    
     return []
 }
 
@@ -81,7 +85,7 @@ function getArrQueueFilms() { // получает масив из локал с�
 
 const arrArrWatchedFilms = getArrWatchedFilms();// масив "Просмотренных фильмов"
 
-function fetchMoviesForId(movie_id) {// ищет фильмы по ID
+function fetchMoviesForId(movie_id) {// ищет фильмы по ID и добавляет розметку в gallery
     console.log(movie_id);
   const url =
     `https://api.themoviedb.org/3/movie/${movie_id}?api_key=a524e22e3630cf24a2e0a24a461145a2`;
@@ -102,14 +106,12 @@ function clickBtn(evt) {// делает розметку в мейн фильм�
     addClassMyLibrary()
     evt.preventDefault();
     refs.galleryRef.innerHTML = ''
-    // console.log(arrArrWatchedFilms);
-    arrArrWatchedFilms.map(film => {
-        fetchMoviesForId(film)
-    })
+    fetchMoviesFromLocalStorage()
 }
 
 refs.myLibraryBtn.addEventListener('click', clickBtn)
-refs.queueBtn.addEventListener('click', activeBtnInLibrary)
+refs.queueBtn.addEventListener('click', activeBtnQueue)
+refs.watchedBtn.addEventListener('click', activeBtnWatched)
 
 
 function addClassMyLibrary() { // добавляет/убирает классы в хедере для правильной отрисовки 
@@ -126,9 +128,29 @@ function activeBorderOn() { //   добавляет/убирает подчер�
     refs.myLibraryBtn.classList.toggle('active-el')
 }
 
-function activeBtnInLibrary() { //добавляет/убирает классы для кнопок в моей бибилиотеке
+function activeBtnQueue(evt) { //добавляет/убирает классы для кнопок в MY LIBRERY
     evt.preventDefault();
     refs.watchedBtn.classList.remove('active-btn')
     refs.queueBtn.classList.add('active-btn')
+    refs.galleryRef.innerHTML = ''
+    // console.log(arrArrWatchedFilms);
+    arrQueueFilms.map(film => {
+        fetchMoviesForId(film)
+    })
+}
+
+function activeBtnWatched(evt) { // при нажатии на кнопку Watched делает ее активной и добавляет розметку
+    // clickBtn()
+    evt.preventDefault();
+    refs.queueBtn.classList.remove('active-btn')
+    refs.watchedBtn.classList.add('active-btn')
+    refs.galleryRef.innerHTML = ''
+    fetchMoviesFromLocalStorage()
+}
+
+function fetchMoviesFromLocalStorage() { // делает fetch на каждый id фильма из масива в local storege watched
+    arrArrWatchedFilms.map(film => {
+        fetchMoviesForId(film)
+    })
 }
 
