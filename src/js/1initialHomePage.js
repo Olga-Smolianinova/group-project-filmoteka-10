@@ -123,6 +123,8 @@ function arrQuantity(results) {
 
 // }
 
+
 export { createCardFunc, fetchPopularMoviesList, arrQuantity };
 // const genreList = document.querySelector('span.genre');
 // console.log(genreList);
+

@@ -8,7 +8,7 @@ import apiServise from './0apiServise.js';
 import templateListOfFilms from '../templates/list-films.hbs';
 
 // доступ к функция
-import { createCardFunc, arrQuantity } from './1initialHomePage.js';
+import { createCardFunc, arrQuantity, genres } from './1initialHomePage.js';
 
 // 2.2) 2searchAndPlaginationHomePage.js:
 // - не забываем в верстке параграф под формой для отображения ошибки на некорректный запрос, берем его из DOM;
@@ -46,6 +46,12 @@ function searchFilms(event) {
 // вызов функции для fetch запроса search и его обработки
 function onFetchSearch() {
   apiServise.fetchFilms().then(results => {
+    results.forEach(({ genre_ids }) =>
+      genre_ids.forEach(
+        (item1, inxex, arr) =>
+          (arr[inxex] = genres.find(item2 => item2.id == item1)),
+      ),
+    );
     console.log(results);
 
     // обрабатываем данные с бекенда и встраиваем их в шаблон с помощью функции createCardFunc(), работа которой прописана в файле 1initialHomePage.js
