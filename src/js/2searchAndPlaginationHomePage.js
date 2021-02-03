@@ -21,6 +21,7 @@ import { createCardFunc, arrQuantity, genres } from './1initialHomePage.js';
 // - кнопка назад должна исчезать когда текущее количество страниц “1” и появляться при “2” и более; - вешаем слушателем функцию plaginationNavigation на кнопки вперед и назад.
 
 // Для того чтобы работала поисковая строка, сначала вешаем слушателя событий на форму и получаем доступ к тому, что введет пользователь в input, обратившись к  event.target.value и обрабатываем действия в функции onFormSearch
+
 refs.inputForm.addEventListener('submit', searchFilms);
 
 function searchFilms(event) {
