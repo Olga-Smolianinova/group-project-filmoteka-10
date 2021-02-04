@@ -1,0 +1,49 @@
+.modal-one-film {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  //   transition: opacity var(--animation-duration) var(--timing-function);
+
+  .content-modal {
+    z-index: 999;
+  }
+}
+
+.modal-one-film.open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.modal-one-film__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.modal-one-film__content {
+  transform: scale(0.95);
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.modal-one-film.open .modal-one-film__content {
+  transform: scale(1);
+}
+
+// .modal-one-film__content {
+//   transform: scale(0.95);
+//   transition: transform var(--animation-duration) var(--timing-function);
+// }
+
+// .modal-one-film.open .modal-one-film__content {
+//   transform: scale(1);
+// }
