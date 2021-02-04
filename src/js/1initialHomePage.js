@@ -41,7 +41,7 @@ function fetchGenres() {
     })
     .then(gen => {
       genres = gen.genres;
-      fetchPopularMoviesList(1);
+      fetchPopularMoviesList(2);
     });
 }
 fetchGenres();
@@ -87,11 +87,10 @@ function fetchPopularMoviesList(tekPageOnPaginator) {
   // Надо ли загружать с API еще одну страницу
   dblFetch = 20 + 1 - elmStartRender <= elmPerPageOn;
   // Сколько элементов загружать c другой страницы API
-  elmCountRender = elmPerPageOn - (20 + 1 - elmStartRender);
-  fetchPageOnAPI(tekPageOnAPI);
-}
+  // elmCountRender = elmPerPageOn - (20 + 1 - elmStartRender);
 
-function fetchPageOnAPI(tekPageOnAPI) {
+  console.log(elmStartRender, dblFetch);
+
   fetch(
     `https://api.themoviedb.org/3/trending/movie/day?api_key=a524e22e3630cf24a2e0a24a461145a2&page=${tekPageOnAPI}`,
   )
@@ -99,14 +98,40 @@ function fetchPageOnAPI(tekPageOnAPI) {
       return response.json();
     })
     .then(({ results }) => {
-      results.forEach(({ genre_ids }) =>
-        genre_ids.forEach(
-          (item1, inxex, arr) =>
-            (arr[inxex] = genres.find(item2 => item2.id == item1)),
-        ),
-      );
-
-      arrQuantity(results);
+      console.log(results);
+      if (dblFetch) {
+        fetch(
+          `https://api.themoviedb.org/3/trending/movie/day?api_key=a524e22e3630cf24a2e0a24a461145a2&page=${
+            tekPageOnAPI + 1
+          }`,
+        )
+          .then(response => {
+            return response.json();
+          })
+          .then(({ results: results1 }) => {
+            results.push.apply(results, results1);
+            results.forEach(({ genre_ids }) =>
+              genre_ids.forEach(
+                (item1, inxex, arr) =>
+                  (arr[inxex] = genres.find(item2 => item2.id == item1)),
+              ),
+            );
+          });
+        createCardFunc(results.slice(elmStartRender - 1, elmPerPageOn));
+      } else {
+        results.forEach(({ genre_ids }) =>
+          genre_ids.forEach(
+            (item1, inxex, arr) =>
+              (arr[inxex] = genres.find(item2 => item2.id == item1)),
+          ),
+        );
+        console.log(
+          results.slice(elmStartRender - 1, elmStartRender + elmPerPageOn - 1),
+        );
+        createCardFunc(
+          results.slice(elmStartRender - 1, elmStartRender + elmPerPageOn - 1),
+        );
+      }
     });
 }
 
