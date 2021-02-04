@@ -1,10 +1,8 @@
 const refs = {
   galleryRef: document.querySelector('.gallery'),
-
   main: document.querySelector('main'), // ссылка откуда надо брать названия фильмов для локал сторедж
-
+  paging: document.querySelector('.paging'),
   footer: document.querySelector('footer'),
-
   myLibraryBtn: document.querySelector('.library'),
   homeBtn: document.querySelector('.home'),
   backgroundHome: document.querySelector('.header-container'),
@@ -16,7 +14,6 @@ const refs = {
   inputForm: document.querySelector('.search-box-home'),
   logo: document.querySelector('.logo'),
   genreList: document.querySelector('.film-sign'),
-
 };
 
 export default refs;
