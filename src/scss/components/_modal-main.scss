@@ -9,7 +9,6 @@
   height: 100vh;
   opacity: 0;
   pointer-events: none;
-  //   transition: opacity var(--animation-duration) var(--timing-function);
 
   .content-modal {
     z-index: 999;
@@ -27,23 +26,107 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: rgba(255, 255, 255, 0.8);
 }
-
-.modal-one-film__content {
-  transform: scale(0.95);
-  transition: transform var(--animation-duration) var(--timing-function);
-}
-
-.modal-one-film.open .modal-one-film__content {
-  transform: scale(1);
-}
-
-// .modal-one-film__content {
-//   transform: scale(0.95);
-//   transition: transform var(--animation-duration) var(--timing-function);
-// }
 
 // .modal-one-film.open .modal-one-film__content {
 //   transform: scale(1);
+// }
+
+// ================== Стили для контента модалки ================
+
+.content-modal {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-poster {
+  width: 280px;
+  border-radius: 5px;
+}
+
+.modal-name-movi {
+  text-transform: uppercase;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+}
+
+.modal-title {
+  display: flex;
+}
+
+.modal-title-info {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  color: #8c8c8c;
+
+  display: block;
+  width: 69px;
+  margin-right: 39px;
+}
+
+.modal-info {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  text-transform: uppercase;
+  color: #000;
+}
+
+.modal-about {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+  text-transform: uppercase;
+}
+
+.modal-film-about {
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.modal-buttone {
+  background: transparent;
+  text-decoration: none;
+  border: 2px solid #000;
+  outline: 5px;
+  height: 44px;
+  width: 124px;
+  border-radius: 5px;
+  text-transform: uppercase;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 16px;
+}
+
+.modal-active-btn {
+  color: #fff;
+  background-color: $accent-color;
+  border: 0;
+}
+
+// .add-to-watched {
+//   background: transparent;
+//   text-decoration: none;
+//   border: 2px solid #ffffff;
+//   outline: 5px;
 // }
