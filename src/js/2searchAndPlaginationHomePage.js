@@ -10,6 +10,9 @@ import templateListOfFilms from '../templates/list-films.hbs';
 // доступ к функция
 import { createCardFunc, arrQuantity, genres } from './1initialHomePage.js';
 
+// доступ к функция showError() и showNotice() из notificaion.js для вывода сообщения о некорректном запросе и уведомлении
+import { showError, showNotice } from './notification.js';
+
 // 2.2) 2searchAndPlaginationHomePage.js:
 // - не забываем в верстке параграф под формой для отображения ошибки на некорректный запрос, берем его из DOM;
 // - создаем глобальные переменную inputVaue (будут использоваться в запросах, как и pageNumber созданный первым участником - НЕ ДУБЛИРУЕМ ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ);
@@ -46,27 +49,40 @@ function searchFilms(event) {
 
 // вызов функции для fetch запроса search и его обработки
 function onFetchSearch() {
-  apiServise.fetchFilms().then(results => {
-    results.forEach(({ genre_ids }) =>
-      genre_ids.forEach(
-        (item1, inxex, arr) =>
-          (arr[inxex] = genres.find(item2 => item2.id == item1)),
-      ),
-    );
-    console.log(results);
+  apiServise
+    .fetchFilms()
+    .then(results => {
+      results.forEach(({ genre_ids }) =>
+        genre_ids.forEach(
+          (item1, inxex, arr) =>
+            (arr[inxex] = genres.find(item2 => item2.id == item1)),
+        ),
+      );
+      // console.log(results);
 
-    // обрабатываем данные с бекенда и встраиваем их в шаблон с помощью функции createCardFunc(), работа которой прописана в файле 1initialHomePage.js
-    // createCardFunc(results);
+      // обрабатываем данные с бекенда и встраиваем их в шаблон с помощью функции createCardFunc(), работа которой прописана в файле 1initialHomePage.js
+      // Функция для отрисовки количество картинок на странице, в зависимости от ширины экрана
+      arrQuantity(results);
+      // console.log(arrQuantity);
 
-    // // Функция для отрисовки количество картинок на странице, в зависимости от ширины экрана
-    arrQuantity(results);
-    // console.log(arrQuantity);
-  });
+      window.scrollTo({
+        // top: 10000000,
+        // чтобы не прописывать рандомное число для корректной прокрутки, указем свойство, которое отвечает за всю высоту документа offsetHeight:
+        top: document.documentElement.offsetHeight,
+        behavior: 'smooth',
+      });
+    })
+    .catch(error => {
+      // showError('No matches were found!');
+      // console.dir(refs.searchErr);
+      console.log(error);
+      refs.searchErr.classList.remove('is-hidden');
 
-  // window.scrollTo({
-  //   // top: 10000000,
-  //   // чтобы не прописывать рандомное число для корректной прокрутки, указем свойство, которое отвечает за всю высоту документа offsetHeight:
-  //   top: document.documentElement.offsetHeight,
-  //   behavior: 'smooth',
-  // });
+      // cховати повідомлення про помилку
+      function hideError() {
+        refs.searchErr.classList.add('is-hidden');
+      }
+
+      const timerId = setTimeout(hideError, 3000);
+    });
 }

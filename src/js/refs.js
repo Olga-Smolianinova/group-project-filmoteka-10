@@ -14,9 +14,8 @@ const refs = {
   watchedBtn: document.querySelector('.button-library-active'),
   queueBtn: document.querySelector('.button-library-inactive'),
   inputForm: document.querySelector('.search-box-home'),
+  searchErr: document.querySelector('.is-hidden'),
   logo: document.querySelector('.logo'),
   genreList: document.querySelector('.film-sign'),
-
 };
-
 export default refs;
