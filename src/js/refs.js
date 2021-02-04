@@ -19,5 +19,5 @@ const refs = {
   genreList: document.querySelector('.film-sign'),
 };
 
-console.log(refs);
+// console.log(refs);
 export default refs;

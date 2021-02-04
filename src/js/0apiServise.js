@@ -25,22 +25,28 @@ export default {
         return response.json();
       })
       .then(({ results }) => {
-        this.page += 1; //для того чтобы при нажатии на кнопку "Load more" подгружалась новая часть запроса на следующей странице
-
-        // console.log('hits.length:', hits.length);
-        // console.log('perPage: ', this.perPage);
-        // // console.log(this.loadMore.hideBtnLoadMore());
+        this.pageNumber += 1; //для того чтобы при нажатии на пагинатор или кнопку "Load more" подгружалась новая часть запроса на следующей странице
 
         if (results.length === 0) {
           throw new Error('Error fetching data'); //прописываем для того чтобы лучше отловить ошибки. В случае, если данные по запросу отсутствуют и  вернулся [], ошибка ловится в catch
           return;
         }
-
         return results;
       });
+    // .then(results => {
+    //   results.forEach(({ backdrop_path }) => {
+    //     console.log(backdrop_path);
+
+    //     // if ((backdrop_path = null)) {
+    //     //   console.log((backdrop_path = null));
+    //     //   // const backdrop_path = '/fA5A3DfA0r6KtiivjiVz4rkFLjq.jpg';
+    //     //   // return;
+    //     // }
+    //   });
+    // });
   },
   //   при изменении запроса при input начинает отсчет для вывода данных на страницы с page=1
   resetPage() {
-    this.page = 1;
+    this.pageNumber = 1;
   },
 };

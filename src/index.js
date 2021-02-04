@@ -25,3 +25,5 @@ import './js/footer';
 import './js/notification.js';
 
 import './js/refs.js';
+
+import './js/fetchDraft.js'; //чернетка

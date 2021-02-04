@@ -35,7 +35,7 @@ refs.inputForm.addEventListener('submit', searchFilms);
 function searchFilms(event) {
   event.preventDefault();
   apiServise.query = event.currentTarget.elements.query.value;
-  console.log(apiServise.query);
+  // console.log(apiServise.query);
 
   // чтобы при добавлении новой информации поиска предыдущий список не показывался и обновлялся прописываем:
   refs.galleryRef.innerHTML = '';
@@ -63,7 +63,7 @@ function onFetchSearch() {
             (arr[inxex] = genres.find(item2 => item2.id == item1)),
         ),
       );
-      // console.log(results);
+      console.log(results);
 
       // обрабатываем данные с бекенда и встраиваем их в шаблон с помощью функции createCardFunc(), работа которой прописана в файле 1initialHomePage.js
       // Функция для отрисовки количество картинок на странице, в зависимости от ширины экрана
