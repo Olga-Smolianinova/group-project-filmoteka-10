@@ -18,4 +18,6 @@ const refs = {
   logo: document.querySelector('.logo'),
   genreList: document.querySelector('.film-sign'),
 };
+
+console.log(refs);
 export default refs;

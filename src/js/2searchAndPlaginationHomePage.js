@@ -80,7 +80,7 @@ function onFetchSearch() {
     .catch(error => {
       refs.searchErr.classList.remove('is-hidden');
       // виклик  hideError, щоб cховати повідомлення про помилку
-      const timerId = setTimeout(apiServise.hideError, 3000);
+      const timerId = setTimeout(hideError, 3000);
     });
 }
 
