@@ -8,7 +8,12 @@ import apiServise from './0apiServise.js';
 import templateListOfFilms from '../templates/list-films.hbs';
 
 // доступ к функция
-import { createCardFunc, arrQuantity, genres } from './1initialHomePage.js';
+import {
+  createCardFunc,
+  fetchPopularMoviesList,
+  arrQuantity,
+  genres,
+} from './1initialHomePage.js';
 
 // доступ к функция showError() и showNotice() из notificaion.js для вывода сообщения о некорректном запросе и уведомлении
 import { showError, showNotice } from './notification.js';
@@ -73,16 +78,15 @@ function onFetchSearch() {
       });
     })
     .catch(error => {
-      // showError('No matches were found!');
-      // console.dir(refs.searchErr);
-      console.log(error);
       refs.searchErr.classList.remove('is-hidden');
-
-      // cховати повідомлення про помилку
-      function hideError() {
-        refs.searchErr.classList.add('is-hidden');
-      }
-
-      const timerId = setTimeout(hideError, 3000);
+      // виклик  hideError, щоб cховати повідомлення про помилку
+      const timerId = setTimeout(apiServise.hideError, 3000);
     });
 }
+
+// cховати повідомлення про помилку
+function hideError() {
+  refs.searchErr.classList.add('is-hidden');
+  fetchPopularMoviesList();
+}
+// const timerId = setTimeout(hideError, 3000);
