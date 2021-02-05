@@ -2,7 +2,7 @@ import markupFooter from '../html/footer.html';
 
 import refs from './refs.js';
 
-refs.footer.insertAdjacentHTML('afterend', markupFooter);
+refs.footer.insertAdjacentHTML('afterbegin', markupFooter);
 
 // =====================================>
 const openModalRef = document.querySelector('.link-modal');
@@ -20,10 +20,10 @@ function onOpenModal(event) {
 
 function onCloseModal() {
   lightboxRef.classList.remove('is-open');
-  window.removeEventListener('keydown', onCloceModalESC);
+  window.removeEventListener('keydown', onCloseModalESC);
 }
 
-function onCloceModalESC(event) {
+function onCloseModalESC(event) {
   if (event.code === 'Escape') {
     onCloseModal();
   }

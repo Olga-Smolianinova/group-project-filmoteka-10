@@ -1,8 +1,7 @@
 import markupFilms from '../html/myFilmLibraryPage.html';
 import refs from '../js/refs'
 import templateListOfFilms from '../templates/my-library.hbs';
-import showNot from '../js/notification';
-
+import {showNotice} from '../js/notification';
 
 
 
@@ -12,8 +11,8 @@ refs.main.insertAdjacentHTML('afterend', markupFilms)// тестовая роз�
 
 
 // ======Логика дял добавления "просмотренных" и "Добавленых в просмотр" фильмов в local Storage=============
-const btnAddToWatched = document.querySelector('.add-to-watched');// кнопка добавить в "Просмотренные "
-const bntAddToQueue = document.querySelector('.add-to-queue'); // кнопка добавить в "Сотреть позже"
+// const btnAddToWatched = document.querySelector('.add-to-watched');// кнопка добавить в "Просмотренные "
+// const bntAddToQueue = document.querySelector('.add-to-queue'); // кнопка добавить в "Сотреть позже"
    
 let arrWatchedFilms = [];
 let arrQueueFilms = [];
@@ -21,8 +20,8 @@ let arrQueueFilms = [];
 getArrWatchedFilms();
 getArrQueueFilms();
 
-btnAddToWatched.addEventListener('click', saveFilmToWatched)
-bntAddToQueue.addEventListener('click', saveFilmToQueue)
+// btnAddToWatched.addEventListener('click', saveFilmToWatched)
+// bntAddToQueue.addEventListener('click', saveFilmToQueue)
 
 function saveFilmToWatched(evt) { // записывает id фильма в локал сторедж "Просмотренные"
     evt.preventDefault();
@@ -34,16 +33,15 @@ function saveFilmToQueue(evt) {// записывает id фильма в лок
     evt.preventDefault();
     const stringArr = makeStringQueue()
     localStorage.setItem('queue', `${stringArr}`)
-    
 }
 
-function getWatchedFilmId() { // получает значение id фильма "Просмотренные"
-    return btnAddToWatched.getAttribute("data-idFilm")
-}
+// function getWatchedFilmId() { // получает значение id фильма "Просмотренные"
+//     return btnAddToWatched.getAttribute("data-idFilm")
+// }
 
-function getQueueFilmId() {// получает значение id фильма "Смотреть позже"
-    return bntAddToQueue.getAttribute("data-idFilm")
-}
+// function getQueueFilmId() {// получает значение id фильма "Смотреть позже"
+//     return bntAddToQueue.getAttribute("data-idFilm")
+// }
  
 function makeStringWatched() { //функцыя получает значение data-idFilm помещает его в масив и возвращает строку для локал сторедж
     const idFilm = getWatchedFilmId();
@@ -65,7 +63,7 @@ function getArrWatchedFilms() { // получает масив из локал �
         const arrPars = JSON.parse(arrString);
         return arrWatchedFilms = [...arrPars]
     }
-    
+    // showNotice('hi')             
     return []
 }
 
@@ -132,9 +130,15 @@ function activeBtnQueue(evt) { //добавляет/убирает классы 
     refs.queueBtn.classList.add('active-btn')
     refs.galleryRef.innerHTML = ''
     // console.log(arrArrWatchedFilms);
-    arrQueueFilms.map(film => {
+    if (arrQueueFilms.length === 0) {
+        const message = 'Add movies'
+        showNotice(message)
+    } else {
+        arrQueueFilms.map(film => {
         fetchMoviesForId(film)
     })
+    }
+    
 }
 
 function activeBtnWatched(evt) { // при нажатии на кнопку Watched делает ее активной и добавляет розметку
@@ -147,8 +151,14 @@ function activeBtnWatched(evt) { // при нажатии на кнопку Watc
 }
 
 function fetchMoviesFromLocalStorage() { // делает fetch на каждый id фильма из масива в local storege watched
+    if (arrArrWatchedFilms.length === 0) {
+        const message = 'Add movies'
+        showNotice(message)
+    }
     arrArrWatchedFilms.map(film => {
         fetchMoviesForId(film)
     })
 }
+
+export{saveFilmToWatched, saveFilmToQueue}
 

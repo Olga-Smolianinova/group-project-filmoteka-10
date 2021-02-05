@@ -1,10 +1,7 @@
 const refs = {
   galleryRef: document.querySelector('.gallery'),
-
   main: document.querySelector('main'), // ссылка откуда надо брать названия фильмов для локал сторедж
-
   footer: document.querySelector('footer'),
-
   myLibraryBtn: document.querySelector('.library'),
   homeBtn: document.querySelector('.home'),
   backgroundHome: document.querySelector('.header-container'),
@@ -17,6 +14,14 @@ const refs = {
   searchErr: document.querySelector('.is-hidden'),
   logo: document.querySelector('.logo'),
   genreList: document.querySelector('.film-sign'),
+
+  tileFilm: document.querySelector('.film-element'),
+
+  // =====
+  modalWindow: document.querySelector('.modal-one-film'),
+  contentModal: document.querySelector('.content-modal'),
+  oneFilmOwerlay: document.querySelector('.modal-one-film__overlay'),
+  //=====
 };
 
 // console.log(refs);

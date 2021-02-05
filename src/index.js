@@ -4,7 +4,7 @@ import './js/header.js';
 
 import './scss/main.scss';
 
-import './js/header.js';
+// import './js/header.js';
 
 import './js/0apiServise.js';
 
@@ -24,6 +24,9 @@ import './js/footer';
 
 import './js/notification.js';
 
+import './js/modalWindow';
+
 import './js/refs.js';
 
 import './js/fetchDraft.js'; //чернетка
+
