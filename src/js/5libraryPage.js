@@ -122,8 +122,8 @@ function addClassMyLibrary() { // добавляет/убирает классы
 
 function activeBorderOn() { //   добавляет/убирает подчеркивание на HOME и MY LIBRERY 
     // evt.preventDefault();
-    refs.homeBtn.classList.toggle('active-el')
-    refs.myLibraryBtn.classList.toggle('active-el')
+    refs.homeBtn.classList.remove('active-el')
+    refs.myLibraryBtn.classList.add('active-el')
 }
 
 function activeBtnQueue(evt) { //добавляет/убирает классы для кнопок в MY LIBRERY
