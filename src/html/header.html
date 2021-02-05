@@ -14,10 +14,8 @@
           <h1 class="title">Filmoteka</h1>
         </div>
         <ul class="site-nav-list">
-
-          <li class="item ">
+          <li class="item">
             <a href="" class="nav-link active-el home-link">HOME</a>
-
           </li>
           <li class="item">
             <a href="" class="nav-link library">MY LIBRARY</a>
@@ -31,14 +29,20 @@
           name="query"
           placeholder="Поиск фильмов"
         />
-        
+
         <img class="search-img" src="../images/search 2.svg" alt="Поиск" />
       </form>
+
+      <!-- Текст для виведення error під час пошуку -->
+      <p class="search-error is-hidden">
+        Search result not successful. Enter the correct movie name and
+      </p>
+
       <!-- <button class="button-test">Test</button> -->
       <form class="form-button-library is-hidden">
-
-
-        <button class="button-library button-library-active active-btn">WATCHED</button>
+        <button class="button-library button-library-active active-btn">
+          WATCHED
+        </button>
 
         <button class="button-library button-library-inactive">QUEUE</button>
       </form>
