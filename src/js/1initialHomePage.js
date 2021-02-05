@@ -38,8 +38,6 @@ refs.paging.insertAdjacentHTML('beforeend', paginator.render()); // Отобра
 // ---- Слушатели событий --------------------------------------------
 
 refs.paging.addEventListener('click', onClickPage); // Слушатель события на пагинатор
-// для открытия и закрытия модального окна вешаем слушателя событий на родителя li - это ul -refs.container
-// const onGalleryClick = refs.galleryRef.addEventListener('click', onOpenModal);
 
 // ---- Объявление функций --------------------------------------------
 
@@ -92,7 +90,7 @@ function fetchPopularMoviesList(pageNumber) {
       return response.json();
     })
     .then(({ results, total_results }) => {
-      paginator.set('totalResult', total_results);
+      paginator.set('totalResult', total_results); // Меняем свойство пагинатора
       if (dblFetch) {
         //Загружаем еще одну страницу
         fetch(
@@ -105,31 +103,27 @@ function fetchPopularMoviesList(pageNumber) {
           })
           .then(({ results: results1 }) => {
             results.push.apply(results, results1);
-            results.forEach(({ genre_ids }) =>
-              genre_ids.forEach(
-                (item1, inxex, arr) =>
-                  (arr[inxex] = genres.find(item2 => item2.id == item1)),
-              ),
-            );
-            createCardFunc(
-              results.slice(
-                elmStartRender - 1,
-                elmStartRender + elmPerPageOn - 1,
-              ),
-            );
+            finRender(results, elmPerPageOn);
           });
       } else {
-        results.forEach(({ genre_ids }) =>
-          genre_ids.forEach(
-            (item1, inxex, arr) =>
-              (arr[inxex] = genres.find(item2 => item2.id == item1)),
-          ),
-        );
-        createCardFunc(
-          results.slice(elmStartRender - 1, elmStartRender + elmPerPageOn - 1),
-        );
+        finRender(results, elmPerPageOn);
       }
     });
+}
+
+// Функция изменение на странице отображение жанров (с числа на описание),
+//   отправка массива на отрисовку и перересовка пагинатора
+function finRender(results, elmPerPageOn) {
+  results.forEach(({ genre_ids }) =>
+    genre_ids.forEach(
+      (item1, inxex, arr) =>
+        (arr[inxex] = genres.find(item2 => item2.id == item1)),
+    ),
+  );
+  createCardFunc(
+    results.slice(elmStartRender - 1, elmStartRender + elmPerPageOn - 1),
+  );
+  refs.paging.innerHTML = paginator.render();
 }
 
 // Функция выбор текущей страницы на пагинаторе и вызов функции отрисовки
@@ -146,27 +140,9 @@ function onClickPage(evt) {
       pageNumber = evt.target.innerText;
   }
   paginator.set('current', pageNumber);
-  refs.paging.innerHTML = paginator.render();
   refs.galleryRef.innerHTML = ''; //Стираем данные предыдущей страницы
   fetchPopularMoviesList(pageNumber);
 }
-
-// fetch for configuration
-// function fetchConfig() {
-//   const url =
-//     'https://api.themoviedb.org/3/configuration?api_key=a524e22e3630cf24a2e0a24a461145a2';
-
-//   return fetch(url).then(response =>
-//     response.json().then(data => console.log(data)),
-//   );
-// }
-// fetchConfig();
-
-// function onOpenModal(event) {
-//   const largeImageUrl = event.target;
-//   // console.dir(largeImageUrl);
-//   // console.log(event.target.dataset.action);
-// }
 
 // ---- Runtime ------------------------------------------------
 
