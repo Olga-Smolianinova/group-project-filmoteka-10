@@ -31,17 +31,20 @@ export default {
           throw new Error('Error fetching data'); //прописываем для того чтобы лучше отловить ошибки. В случае, если данные по запросу отсутствуют и  вернулся [], ошибка ловится в catch
           return;
         }
+        console.log(results);
+        // console.log(backdrop_path);
         return results;
       });
+
     // .then(results => {
-    //   results.forEach(({ backdrop_path }) => {
+    //   results.map(({ backdrop_path }) => {
     //     console.log(backdrop_path);
 
-    //     // if ((backdrop_path = null)) {
-    //     //   console.log((backdrop_path = null));
-    //     //   // const backdrop_path = '/fA5A3DfA0r6KtiivjiVz4rkFLjq.jpg';
-    //     //   // return;
-    //     // }
+    //     if ((backdrop_path = null)) {
+    //       console.log(backdrop_path);
+    //       // const backdrop_path = '/fA5A3DfA0r6KtiivjiVz4rkFLjq.jpg';
+    //       // return;
+    //     }
     //   });
     // });
   },
