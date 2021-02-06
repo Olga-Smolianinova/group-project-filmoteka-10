@@ -1,4 +1,9 @@
+.content-hidden {
+  overflow: hidden;
+}
+
 .modal-one-film {
+  overflow: auto;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,12 +11,14 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   opacity: 0;
   pointer-events: none;
 
   .content-modal {
     z-index: 999;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
   }
 }
 
@@ -29,40 +36,70 @@
   background-color: rgba(255, 255, 255, 0.8);
 }
 
-// .modal-one-film.open .modal-one-film__content {
-//   transform: scale(1);
-// }
+.modal-one-film.open .modal-one-film__content {
+  transform: scale(1);
+}
 
 // ================== Стили для контента модалки ================
 
-.content-modal {
+.modal-one-film-info {
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  width: 287px;
+
+  @media screen and (min-width: 768px) {
+    width: 620px;
+    display: flex;
+
+    .modal-text {
+      display: block;
+      width: 294px;
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 890px;
+
+    .modal-text {
+      width: 426px;
+    }
+  }
 }
 
 .modal-poster {
   width: 280px;
   border-radius: 5px;
+
+  @media screen and (min-width: 768px) {
+    width: 294px;
+    margin-right: 30px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 426px;
+    margin-right: 60px;
+  }
 }
 
-.modal-name-movi {
-  text-transform: uppercase;
+.modal-name-movie {
+text-transform: uppercase;
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
   line-height: 23px;
   color: #000000;
+
+  margin-top: 30px;
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+  }
 }
 
 .modal-title {
   display: flex;
+  margin-top: 20px;
 }
 
 .modal-title-info {
-  font-family: Roboto;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -72,6 +109,10 @@
   display: block;
   width: 69px;
   margin-right: 39px;
+
+  li:not(:last-child) {
+    margin-bottom: 10px;
+  }
 }
 
 .modal-info {
@@ -79,9 +120,32 @@
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 14px;
+  line-height: 16px;
   text-transform: uppercase;
   color: #000;
+
+  .modal-genres {
+    text-transform: none;
+  }
+
+  li:not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  .number {
+    display: inline-block;
+    padding-top: 1px;
+    width: 36px;
+    height: 17px;
+    border-radius: 5px;
+    text-align: center;
+    color: #ffffff;
+    background-color: #ff6b01;
+  }
+}
+
+.modal-film-about {
+  margin-top: 20px;
 }
 
 .modal-about {
@@ -91,6 +155,9 @@
   font-size: 12px;
   line-height: 16px;
   text-transform: uppercase;
+  
+  margin-top: 20px;
+
 }
 
 .modal-film-about {
@@ -101,32 +168,69 @@
   line-height: 20px;
 }
 
-.modal-buttone {
-  background: transparent;
-  text-decoration: none;
-  border: 2px solid #000;
-  outline: 5px;
-  height: 44px;
-  width: 124px;
-  border-radius: 5px;
-  text-transform: uppercase;
+.modal-button-block {
+  margin-top: 54px;
 
-  font-family: Roboto;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 12px;
-  line-height: 16px;
+  .modal-button {
+    background: transparent;
+    text-decoration: none;
+    border: 2px solid #000;
+    outline: 5px;
+    height: 44px;
+    width: 120px;
+    border-radius: 5px;
+    text-transform: uppercase;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+
+    @media screen and (min-width: 768px) {
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+    }
+  }
+
+  .modal-active-btn {
+    color: #fff;
+    background-color: $accent-color;
+    border: 0;
+  }
 }
 
-.modal-active-btn {
-  color: #fff;
-  background-color: $accent-color;
-  border: 0;
+.modal-container {
+  background-color: #ccc;
+
+  padding-top: 46px;
+  height: 230px;
+  max-width: 100%;
+
+  background-color: $primary-text-color;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.56),
+      rgba(0, 0, 0, 0.56)
+    ),
+    url(../images/modalBGimg.jpg);
+
+  .modal-logo-text {
+    display: flex;
+
+    .modal-logo-nav {
+      margin-left: auto;
+      display: flex;
+      color: #000;
+    }
+  }
+
+  .modal-logo-name {
+    display: none;
+  }
 }
 
-// .add-to-watched {
-//   background: transparent;
-//   text-decoration: none;
-//   border: 2px solid #ffffff;
-//   outline: 5px;
-// }

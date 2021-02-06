@@ -1,62 +1,54 @@
-{{!-- <li class="">
-    <img src={{poster_path}} alt=''>
-    <img src="https://image.tmdb.org/t/p/w780{{poster_path}}" alt={{title}} width="400">
-    <div class="film-sign">
-        <h3 class="">{{ original_title}}</h3>
+{{!-- <div class="modal-container"> --}}
+    {{!-- <div class="modal-logo-text"> --}}
+        {{!-- <img class="logo" src="../images/film.jpg" alt="filmoteka" width="24" height="24" /> --}}
+        {{!-- <div>| | </div> --}}
+        {{!-- <h1 class="modal-logo-name">| | Filmoteka</h1> --}}
+        {{!-- <ul class="modal-logo-nav"> --}}
+            {{!-- <li class="nav-item "> --}}
+                {{!-- <a href="" class="modal-link active-el home-link">Home</a> --}}
+                {{!-- </li> --}}
 
-        <p class=""></p>
+            {{!-- <li class="nav-item"> --}}
+                {{!-- <a href="" class="modal-link library">My library</a> --}}
+                {{!-- </li> --}}
+            {{!-- </ul> --}}
+        {{!-- </div> --}}
+    {{!-- </div> --}}
 
-        <p>{{release_date}} |<span class="">{{vote_average}}</span></p>
-
-        <button type=" button " class="add-to-watched" data-idFilm="{{id}}">Add to watched</button>
-        <button type=" button " class="add-to-queue" data-idFilm="{{id}}">Add to queue</button>
+<div class="modal-one-film-info">
+    <div class="modal-img">
+        <img src="https://image.tmdb.org/t/p/w780{{poster_path}}" alt={{title}} class="modal-poster">
     </div>
-</li> --}}
+    <div class="modal-text">
+        <h3 class="modal-name-movie">{{original_title}}</h3>
+        <div class="modal-title">
+            <ul class="modal-title-info">
+                <li>Vote / Votes</li>
+                <li>Popularity</li>
+                <li>Original Title</li>
+                <li>Genre</li>
+            </ul>
+            <ul class="modal-info">
+                <li><span class="number">{{vote_average}}</span> /{{vote_count}}</li>
+                <li>{{popularity }}</li>
+                <li>{{ original_title}}</li>
+                <li>
+                    {{#each genres}}
+                    <span class="modal-genres"> {{name}}
+                        {{/each}}
+                    </span>
+                </li>
+            </ul>
+        </div>
+        <div class="modal-about">About</div>
+        <p class="modal-film-about">
+            {{overview}}
+        </p>
 
-<div>
-    <img src="https://image.tmdb.org/t/p/w780{{poster_path}}" alt={{title}} width="280" class="modal-poster">
+        <div class="modal-button-block">
+            <button type=" button " class="modal-button add-to-watched modal-active-btn" data-idFilm="{{id}}">Add to
+                watched</button>
+            <button type=" button " class="modal-button add-to-queue" data-idFilm="{{id}}">Add to queue</button>
+        </div>
+    </div>
 </div>
-<div>
-    <h3 class="modal-name-movi">{{original_title}}</h3>
-    <div class="modal-title">
-        <ul class="modal-title-info">
-            <li>Vote / Votes</li>
-            <li>Popularity</li>
-            <li>Original Title</li>
-            <li>Genre</li>
-        </ul>
-        <ul class="modal-info">
-            <li>{{vote_average}} /<span class="">{{vote_count}}</span></li>
-            <li>{{popularity }}</li>
-            <li>{{ original_title}}</li>
-            <li>{{Genre}}</li>
-        </ul>
-    </div>
-    <p class="modal-film-about">
-    <div class="modal-about">About</div>
-    {{overview}}
-    </p>
-    <div class="">
-        <button type=" button " class="modal-buttone add-to-watched modal-active-btn" data-idFilm="{{id}}">Add to
-            watched</button>
-        <button type=" button " class="modal-buttone add-to-queue" data-idFilm="{{id}}">Add to queue</button>
-    </div>
-</div>
-
-{{!-- <div class="flex-conteiner">
-    <div class="logo-text">
-        <img class="logo" src="../images/film.svg" alt="filmoteka" width="24" height="24" />
-
-        <h1 class="title">Filmoteka</h1>
-    </div>
-    <ul class="site-nav-list">
-
-        <li class="item ">
-            <a href="" class="nav-link active-el home-link">HOME</a>
-
-        </li>
-        <li class="item">
-            <a href="" class="nav-link library">MY LIBRARY</a>
-        </li>
-    </ul>
-</div> --}}

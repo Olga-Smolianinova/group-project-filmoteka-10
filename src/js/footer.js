@@ -15,11 +15,16 @@ lightboxOverlayRef.addEventListener('click', onCloseModal);
 function onOpenModal(event) {
   event.preventDefault();
   lightboxRef.classList.add('is-open');
-  window.addEventListener('keydown', onCloceModalESC);
+    refs.body.classList.add('content-hidden')
+
+  window.addEventListener('keydown', onCloseModalESC);
 }
 
 function onCloseModal() {
   lightboxRef.classList.remove('is-open');
+
+  refs.body.classList.remove('content-hidden')
+
   window.removeEventListener('keydown', onCloseModalESC);
 }
 

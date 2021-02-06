@@ -1,0 +1,38 @@
+// .paging {
+//
+// }
+
+.paginator {
+  font-size: 16px;
+}
+.paginator-current {
+  display: inline-block;
+
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 5px;
+
+  width: 40px;
+  height: 40px;
+
+  font-size: 18px !important;
+  color: $primary-white-color !important;
+  background-color: $footer-accent-color;
+}
+.paginator-page-first {
+  color: $footer-accent-color;
+}
+.paginator-page {
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.33;
+  color: $main-text-color;
+}
+// .paginator-page-last {
+//   //
+// }
+.paginator-previous,
+.paginator-next {
+  color: $main-text-color;
+}
