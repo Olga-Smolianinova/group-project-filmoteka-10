@@ -32,7 +32,12 @@
                 <li><span class="number">{{vote_average}}</span> /{{vote_count}}</li>
                 <li>{{popularity }}</li>
                 <li>{{ original_title}}</li>
-                <li>!!!Genre!!!</li>
+                <li>
+                    {{#each genres}}
+                    <span class="modal-genres"> {{name}}
+                        {{/each}}
+                    </span>
+                </li>
             </ul>
         </div>
         <div class="modal-about">About</div>

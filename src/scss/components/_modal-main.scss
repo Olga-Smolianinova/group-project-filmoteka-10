@@ -17,6 +17,9 @@
 
   .content-modal {
     z-index: 999;
+
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
   }
 }
 
@@ -31,7 +34,7 @@
   left: 0;
   width: 100vw;
   height: 100vh;
-  background-color: rgba(255, 255, 255, 1);
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .modal-one-film.open .modal-one-film__content {
@@ -122,6 +125,10 @@
   line-height: 16px;
   text-transform: uppercase;
   color: #000;
+
+  .modal-genres {
+    text-transform: none;
+  }
 
   li:not(:last-child) {
     margin-bottom: 10px;
