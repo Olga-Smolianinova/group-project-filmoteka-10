@@ -44,9 +44,11 @@ function addClassMyLibrary() {                                          // до�
     refs.inpuForm.classList.add('is-hidden');
 }
 
+
 function activeBorderOn() {                                             //   добавляет/убирает подчеркивание на HOME и MY LIBRERY 
     refs.homeBtn.classList.toggle('active-el')
     refs.myLibraryBtn.classList.toggle('active-el')
+
 }
 
 function activeBtnQueue(evt) {                                          //добавляет/убирает классы для кнопок в MY LIBRERY

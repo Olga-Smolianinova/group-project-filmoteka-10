@@ -121,3 +121,14 @@
 //   console.log(largeImageUrl);
 //   console.log(event.target.dataset.action);
 // }
+
+// fetch for configuration
+// function fetchConfig() {
+//   const url =
+//     'https://api.themoviedb.org/3/configuration?api_key=a524e22e3630cf24a2e0a24a461145a2';
+
+//   return fetch(url).then(response =>
+//     response.json().then(data => console.log(data)),
+//   );
+// }
+// fetchConfig();

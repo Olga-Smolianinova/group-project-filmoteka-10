@@ -20,7 +20,7 @@ body {
   font-weight: 500;
   line-height: 1.33;
   // letter-spacing: 0.08em;
-  color: $primary-text-color;
+  color: $main-text-color;
   background-color: $primary-white-color;
 }
 
@@ -73,4 +73,7 @@ a {
   @include for-size(desktop) {
     padding: 60px 71px;
   }
+}
+.no-style {
+  display: none;
 }
