@@ -29,4 +29,3 @@ import './js/modalWindow';
 import './js/refs.js';
 
 import './js/fetchDraft.js'; //чернетка
-
