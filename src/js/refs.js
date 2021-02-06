@@ -19,6 +19,7 @@ const refs = {
   genreList: document.querySelector('.film-sign'),
 
   tileFilm: document.querySelector('.film-element'),
+  body: document.querySelector('body'),
 
   // =====
   modalWindow: document.querySelector('.modal-one-film'),

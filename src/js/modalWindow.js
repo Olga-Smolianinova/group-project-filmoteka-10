@@ -17,6 +17,8 @@ function openModalWindow(evt) {
         return
     }
 
+    contentHidden()// запрещает пролистывать контент за модалкой
+
     console.dir(evt.target);
 
     idFilmFromDataAction = evt.target.attributes[2].nodeValue                 // ID фильма по клику на плитку фильма
@@ -46,15 +48,17 @@ function fetchMoviesForIdByModal(movie_id) {                                    
 
 function addListenerFromBtn() { 
     const btnAddToWatched = document.querySelector('.add-to-watched');
-    const bntAddToQueue = document.querySelector('.add-to-queue');
+  const bntAddToQueue = document.querySelector('.add-to-queue');
+  
+  btnAddToWatched.addEventListener('click', console.log('hi'))
 
-    // btnAddToWatched.addEventListener('click', openModalWindow) 
 }
 
 function closeFilmModal() {
     refs.modalWindow.classList.remove('open')
     window.removeEventListener('keydown', closeFilmModalESC);
     refs.contentModal.innerHTML = ''
+    refs.body.classList.remove('content-hidden')
 }
 
 function closeFilmModalESC(evt) {
@@ -62,3 +66,8 @@ function closeFilmModalESC(evt) {
     closeFilmModal();
   }
 }
+
+function contentHidden(){
+    refs.body.classList.add('content-hidden')
+}
+
