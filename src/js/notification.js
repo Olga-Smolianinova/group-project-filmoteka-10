@@ -19,4 +19,4 @@ function showNotice(message) {
     delay: 3000,
   });
 }
-export default [showError, showNotice];
+export { showError, showNotice };
