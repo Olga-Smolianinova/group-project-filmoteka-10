@@ -73,6 +73,7 @@ function fetchGenres() {
     });
 }
 
+
 // Функция fetch-запрос  для создания коллекции фильмов на главной странице
 function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
 

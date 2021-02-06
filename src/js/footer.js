@@ -2,7 +2,6 @@ import markupFooter from '../html/footer.html';
 
 import refs from './refs.js';
 
-
 refs.footer.insertAdjacentHTML('afterbegin', markupFooter);
 
 // =====================================>
@@ -23,7 +22,9 @@ function onOpenModal(event) {
 
 function onCloseModal() {
   lightboxRef.classList.remove('is-open');
+
   refs.body.classList.remove('content-hidden')
+
   window.removeEventListener('keydown', onCloseModalESC);
 }
 

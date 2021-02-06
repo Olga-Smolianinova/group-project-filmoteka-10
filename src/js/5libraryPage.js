@@ -17,10 +17,12 @@ function fetchMoviesForId(movie_id) {                                   // ищ�
       return response.json();
     })
         .then(results => {
+
           const markup = templateListOfFilms(results);
         refs.galleryRef.insertAdjacentHTML('beforeend', markup);
     });
 }
+
 
 function clickBtn(evt) {                                                // делает розметку в мейн фильмов из локал сторедж "просмотренные"
     activeBorderOn()
@@ -36,6 +38,7 @@ refs.queueBtn.addEventListener('click', activeBtnQueue)
 refs.watchedBtn.addEventListener('click', activeBtnWatched)
 
 
+
 function addClassMyLibrary() {                                          // добавляет/убирает классы в хедере для правильной отрисовки 
     refs.backgroundHome.classList.remove('header-background-home');
     refs.backgroundHome.classList.add('header-background-library');
@@ -43,7 +46,6 @@ function addClassMyLibrary() {                                          // до�
     refs.bntlibrary.classList.remove('is-hidden');
     refs.inpuForm.classList.add('is-hidden');
 }
-
 
 function activeBorderOn() {                                             //   добавляет/убирает подчеркивание на HOME и MY LIBRERY 
     refs.homeBtn.classList.toggle('active-el')
@@ -74,6 +76,7 @@ function activeBtnWatched(evt) {                                        // пр�
     refs.galleryRef.innerHTML = ''
     fetchMoviesFromLocalStorage()
 }
+
 
 function fetchMoviesFromLocalStorage() {                                // делает fetch на каждый id фильма из масива в local storege watched
     if (arrWatchedFilms.length === 0) {
