@@ -48,7 +48,10 @@ function fetchMoviesForIdByModal(movie_id) {                                    
 
 function addListenerFromBtn() { 
     const btnAddToWatched = document.querySelector('.add-to-watched');
-    const bntAddToQueue = document.querySelector('.add-to-queue');
+  const bntAddToQueue = document.querySelector('.add-to-queue');
+  
+  btnAddToWatched.addEventListener('click', console.log('hi'))
+
 }
 
 function closeFilmModal() {
