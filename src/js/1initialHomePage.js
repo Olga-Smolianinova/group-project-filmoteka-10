@@ -16,15 +16,16 @@
 import templateListOfFilms from '../templates/list-films.hbs'; //  получаем доступ к шаблону для отображения списка фильмов
 import refs from '../js/refs.js';
 import pagination from 'pagination'; // Пагинатор
+import apiServise from './0apiServise.js'; // Глобальные переменные
 
 // ---- Глобальные переменные и объекты ----------------------------------------
 
-const renderFilms = 0; // ?
 let genres; //Массив жанров
-let pageNumber = 1; //Текущая страница запроса на пагинаторе
 let tekPageOnAPI = 1; //Текущая страница API запроса
 let elmStartRender = 1; //С какого элемента API-страницы отображать страницу на экране
 let dblFetch = false; //надо ли загружать с API еще одну страницу
+let url1 = ''; //url для функции fetch (I запрос)
+let url2 = ''; //url для функции fetch (II запрос)
 
 // Пагинатор
 let paginator = pagination.create('search', {
@@ -64,19 +65,17 @@ function fetchGenres() {
     })
     .then(gen => {
       genres = gen.genres;
-      fetchPopularMoviesList(pageNumber);
+      fetchPopularMoviesList(
+        apiServise.pageNumber,
+        apiServise.renderFilms,
+        apiServise.searchQuery,
+      );
     });
 }
 
-// fetchGenres();
+// Функция fetch-запрос  для создания коллекции фильмов на главной странице
+function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
 
-// document
-//   .querySelector('.button-test')
-//   .addEventListener('click', () => console.log(genres));
-
-
-// Функция fetch-запрос на список самых популярных фильмов для создания коллекции на главной странице
-function fetchPopularMoviesList(pageNumber) {
   // Определяем кол-во элементов на экране (зависит от устройства)
   let elmPerPageOn = 0;
   if (innerWidth >= 1024) {
@@ -96,21 +95,35 @@ function fetchPopularMoviesList(pageNumber) {
   // Надо ли загружать с API еще одну страницу
   dblFetch = 20 + 1 - elmStartRender <= elmPerPageOn;
 
-  fetch(
-    `https://api.themoviedb.org/3/trending/movie/day?api_key=a524e22e3630cf24a2e0a24a461145a2&page=${tekPageOnAPI}`,
-  )
+  // Определяем url для функции fetch
+  if (renderFilms === 1) {
+    // Популярные фильмы
+    url1 = `https://api.themoviedb.org/3/trending/movie/day?api_key=a524e22e3630cf24a2e0a24a461145a2&page=${tekPageOnAPI}`;
+    url2 = `https://api.themoviedb.org/3/trending/movie/day?api_key=a524e22e3630cf24a2e0a24a461145a2&page=${
+      tekPageOnAPI + 1
+    }`;
+  } else if (renderFilms === 2) {
+    // Поиск по ключевому слову
+    url1 = `https://api.themoviedb.org/3/search/movie?api_key=a524e22e3630cf24a2e0a24a461145a2&page=${tekPageOnAPI}&query=${searchQuery}`;
+    url2 = `https://api.themoviedb.org/3/search/movie?api_key=a524e22e3630cf24a2e0a24a461145a2&page=${
+      tekPageOnAPI + 1
+    }&query=${searchQuery}`;
+  }
+
+  fetch(url1)
     .then(response => {
       return response.json();
     })
     .then(({ results, total_results }) => {
-      paginator.set(total_results); // Меняем свойство пагинатора
+      paginator.set('totalResult', total_results); // Меняем свойство пагинатора
+      //
+      //  Если total_results =0 выводить красную фигню
+      //
+      //
+
       if (dblFetch) {
         //Загружаем еще одну страницу
-        fetch(
-          `https://api.themoviedb.org/3/trending/movie/day?api_key=a524e22e3630cf24a2e0a24a461145a2&page=${
-            tekPageOnAPI + 1
-          }`,
-        )
+        fetch(url2)
           .then(response => {
             return response.json();
           })
@@ -124,7 +137,7 @@ function fetchPopularMoviesList(pageNumber) {
     });
 }
 
-// Функция изменение на странице отображение жанров (с числа на описание),
+// Функция изменяет на странице отображение жанров (с числа на описание),
 //   отправка массива на отрисовку и перересовка пагинатора
 function finRender(results, elmPerPageOn) {
   results.forEach(({ genre_ids }) =>
@@ -144,17 +157,30 @@ function onClickPage(evt) {
   evt.preventDefault();
   switch (evt.target.innerText) {
     case 'Previous':
-      pageNumber = paginator.getPaginationData().current - 1;
+      apiServise.pageNumber = paginator.getPaginationData().current - 1;
       break;
     case 'Next':
-      pageNumber = paginator.getPaginationData().current + 1;
+      apiServise.pageNumber = paginator.getPaginationData().current + 1;
       break;
     default:
-      pageNumber = evt.target.innerText;
+      apiServise.pageNumber = evt.target.innerText;
   }
-  paginator.set('current', pageNumber);
+  paginator.set('current', apiServise.pageNumber);
   refs.galleryRef.innerHTML = ''; //Стираем данные предыдущей страницы
-  fetchPopularMoviesList(pageNumber);
+  if (apiServise.renderFilms === 1 || apiServise.renderFilms === 2) {
+    fetchPopularMoviesList(
+      apiServise.pageNumber,
+      apiServise.renderFilms,
+      apiServise.searchQuery,
+    );
+  } else {
+    // fetchPopularMoviesList(
+    //   apiServise.pageNumber,
+    //   apiServise.renderFilms,
+    //   apiServise.searchQuery,
+    // );
+    // Вставить функцию Олега
+  }
 }
 
 // ---- Runtime ------------------------------------------------
@@ -163,4 +189,4 @@ fetchGenres();
 
 // ---- Экспорты ------------------------------------------------
 
-export { createCardFunc, fetchPopularMoviesList, genres };
+export { createCardFunc, fetchPopularMoviesList };
