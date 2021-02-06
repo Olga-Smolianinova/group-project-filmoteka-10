@@ -5,6 +5,7 @@ import { showNotice } from '../js/notification';
 let arrWatchedFilms = [];
 let arrQueueFilms = [];
 
+
 refs.galleryRef.addEventListener('click', openModalWindow)
 refs.oneFilmOwerlay.addEventListener('click', closeFilmModal)
 
@@ -39,11 +40,13 @@ function fetchMoviesForIdByModal(movie_id) {                                    
     });
 }
 
+
 function closeFilmModal() {
     refs.modalWindow.classList.remove('open')
     window.removeEventListener('keydown', closeFilmModalESC);
     refs.contentModal.innerHTML = ''
     refs.body.classList.remove('content-hidden')
+
 }
 
 function closeFilmModalESC(evt) {
@@ -130,3 +133,4 @@ function saveFilmToQueue() {                              // записывае�
 
 
 export {getArrWatchedFilms, getArrQueueFilms}
+
