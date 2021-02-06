@@ -40,10 +40,16 @@ refs.paging.insertAdjacentHTML('beforeend', paginator.render()); // Отобра
 
 refs.paging.addEventListener('click', onClickPage); // Слушатель события на пагинатор
 
-// ---- Объявление функций --------------------------------------------
-
 // Функция для отрисовки фильмов через template  в HTML
 function createCardFunc(imgPath, filmTitle, movieId) {
+  // ======test
+  // imgPath.map(({ release_date }) => {
+  //   const date = new Date(release_date);
+  //   // console.log(date.getFullYear());
+  //   console.log(String((release_date = date.getFullYear())));
+  // });
+  // console.log(filmTitle);
+  // console.log(movieId);
   const markup = templateListOfFilms(imgPath, filmTitle, movieId);
   refs.galleryRef.insertAdjacentHTML('beforeend', markup);
 }
@@ -69,6 +75,7 @@ function fetchGenres() {
 
 // Функция fetch-запрос  для создания коллекции фильмов на главной странице
 function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
+
   // Определяем кол-во элементов на экране (зависит от устройства)
   let elmPerPageOn = 0;
   if (innerWidth >= 1024) {
