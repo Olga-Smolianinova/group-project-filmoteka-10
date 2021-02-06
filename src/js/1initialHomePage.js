@@ -68,8 +68,6 @@ function fetchGenres() {
 //   .querySelector('.button-test')
 //   .addEventListener('click', () => console.log(genres));
 
-
-
 // Функция fetch-запрос на список самых популярных фильмов для создания коллекции на главной странице
 function fetchPopularMoviesList(pageNumber) {
   // Определяем кол-во элементов на экране (зависит от устройства)
@@ -98,7 +96,7 @@ function fetchPopularMoviesList(pageNumber) {
       return response.json();
     })
     .then(({ results, total_results }) => {
-      paginator.set('totalResult', total_results); // Меняем свойство пагинатора
+      paginator.set(total_results); // Меняем свойство пагинатора
       if (dblFetch) {
         //Загружаем еще одну страницу
         fetch(

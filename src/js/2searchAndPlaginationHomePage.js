@@ -11,7 +11,6 @@ import templateListOfFilms from '../templates/list-films.hbs';
 import {
   createCardFunc,
   fetchPopularMoviesList,
-  arrQuantity,
   genres,
 } from './1initialHomePage.js';
 
@@ -67,8 +66,6 @@ function onFetchSearch() {
 
       // обрабатываем данные с бекенда и встраиваем их в шаблон с помощью функции createCardFunc(), работа которой прописана в файле 1initialHomePage.js
       // Функция для отрисовки количество картинок на странице, в зависимости от ширины экрана
-      arrQuantity(results);
-      // console.log(arrQuantity);
 
       window.scrollTo({
         // top: 10000000,

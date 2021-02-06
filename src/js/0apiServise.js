@@ -17,8 +17,6 @@ export default {
 
     const url = `https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&page=${this.pageNumber}&query=${this.query}`;
 
-    // const url = `https://api.themoviedb.org/3/search/movie?api_key=a524e22e3630cf24a2e0a24a461145a2&query=${this.searchQuery}`;
-
     return fetch(url)
       .then(response => {
         // console.log(response);
@@ -31,22 +29,8 @@ export default {
           throw new Error('Error fetching data'); //прописываем для того чтобы лучше отловить ошибки. В случае, если данные по запросу отсутствуют и  вернулся [], ошибка ловится в catch
           return;
         }
-        console.log(results);
-        // console.log(backdrop_path);
-        return results;
+        //
       });
-
-    // .then(results => {
-    //   results.map(({ backdrop_path }) => {
-    //     console.log(backdrop_path);
-
-    //     if ((backdrop_path = null)) {
-    //       console.log(backdrop_path);
-    //       // const backdrop_path = '/fA5A3DfA0r6KtiivjiVz4rkFLjq.jpg';
-    //       // return;
-    //     }
-    //   });
-    // });
   },
   //   при изменении запроса при input начинает отсчет для вывода данных на страницы с page=1
   resetPage() {
