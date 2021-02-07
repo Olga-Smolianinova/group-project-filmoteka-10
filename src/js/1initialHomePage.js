@@ -76,6 +76,7 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
   let elmPerPageOn = 0;
   if (innerWidth >= 1024) {
     elmPerPageOn = 9;
+    console.log(apiServise.images);
   } else if (innerWidth >= 768 && innerWidth < 1024) {
     elmPerPageOn = 8;
   } else {
@@ -113,6 +114,7 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
     .then(({ results, total_results }) => {
       paginator.set('totalResult', total_results); // Меняем свойство пагинатора
       // console.log(total_results);
+      console.log(results);
 
       // Если total_results =0 выводить красную фигню
       if (total_results === 0) {
@@ -158,11 +160,20 @@ function finRender(results, elmPerPageOn) {
       (item1, inxex, arr) =>
         (arr[inxex] = genres.find(item2 => item2.id == item1)),
     );
+
+    // корегування дати
     arr[inxex].release_date =
       typeof arr[inxex].release_date === 'string'
         ? arr[inxex].release_date.slice(0, 4)
         : arr[inxex].release_date;
+
+    // корегування фону
+    arr[inxex].poster_path =
+      arr[inxex].poster_path === null
+        ? (arr[inxex].poster_path = '/b6MiDuJY694YWHMc9iaEc6nY0Qs.jpg')
+        : arr[inxex].poster_path;
   });
+
   createCardFunc(
     results.slice(elmStartRender - 1, elmStartRender + elmPerPageOn - 1),
   );
