@@ -18,15 +18,10 @@ import './js/5libraryPage';
 
 import './js/modalWindow';
 
-import './js/one-film';
-
 import './js/footer';
 
 import './js/notification.js';
 
-
 import './js/refs.js';
 
 import './js/fetchDraft.js'; //чернетка
-
-
