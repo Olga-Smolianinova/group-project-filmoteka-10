@@ -79,7 +79,6 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
   let elmPerPageOn = 0;
   if (innerWidth >= 1024) {
     elmPerPageOn = 9;
-    console.log(apiServise.images);
   } else if (innerWidth >= 768 && innerWidth < 1024) {
     elmPerPageOn = 8;
   } else {
