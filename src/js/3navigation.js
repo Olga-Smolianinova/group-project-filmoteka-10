@@ -1,14 +1,24 @@
 import refs from '../js/refs';
-import { createCardFunc, fetchPopularMoviesList } from './1initialHomePage.js';
+import {
+  createCardFunc,
+  fetchPopularMoviesList,
+  startPaginator,
+} from './1initialHomePage.js';
+import apiServise from './0apiServise.js';
 
 refs.homeBtn.addEventListener('click', activeHomePage);
 refs.logo.addEventListener('click', activeHomePage);
 
 function activeHomePage(event) {
   event.preventDefault();
-  refs.galleryRef.innerHTML = '';
-  createCardFunc();
-  fetchPopularMoviesList();
+  apiServise.renderFilms = 1;
+  startPaginator();
+  refs.galleryRef.innerHTML = ''; //Стираем данные предыдущей страницы
+  fetchPopularMoviesList(
+    apiServise.pageNumber,
+    apiServise.renderFilms,
+    apiServise.searchQuery,
+  );
   addClassHome();
 }
 

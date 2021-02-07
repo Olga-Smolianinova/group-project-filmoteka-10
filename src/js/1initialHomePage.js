@@ -40,6 +40,8 @@ refs.paging.insertAdjacentHTML('beforeend', paginator.render()); // Отобра
 
 refs.paging.addEventListener('click', onClickPage); // Слушатель события на пагинатор
 
+// ---- Объявление функций --------------------------------------------
+
 // Функция для отрисовки фильмов через template  в HTML
 function createCardFunc(imgPath, filmTitle, movieId) {
   // ======test
@@ -183,10 +185,16 @@ function onClickPage(evt) {
   }
 }
 
+//Функция сброса пагинатора
+function startPaginator() {
+  apiServise.pageNumber = 1;
+  paginator.set('current', apiServise.pageNumber);
+}
+
 // ---- Runtime ------------------------------------------------
 
 fetchGenres();
 
 // ---- Экспорты ------------------------------------------------
 
-export { createCardFunc, fetchPopularMoviesList };
+export { createCardFunc, fetchPopularMoviesList, startPaginator };

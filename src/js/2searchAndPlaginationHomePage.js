@@ -8,14 +8,13 @@
 // - создаем функция plaginationNavigation принимающую ивент, по id она определяет какая из кнопок была нажат и в зависимости от этого по разному отрабатывает изменяя при этом глобальные переменные pageNumber, прорисовуя его в контейнере в DOM и запускает на пустую строчку inputValue функцию fetchPopularMoviesList или fetchFilms;
 // - кнопка назад должна исчезать когда текущее количество страниц “1” и появляться при “2” и более; - вешаем слушателем функцию plaginationNavigation на кнопки вперед и назад.
 
-
 // ---- Импорты -------------------------------------------------------
 
 import refs from './refs.js';
 // // доступ к функция showError() и showNotice() из notificaion.js для вывода сообщения о некорректном запросе и уведомлении
 import { showError, showNotice } from './notification.js';
 import apiServise from './0apiServise.js';
-import { fetchPopularMoviesList } from './1initialHomePage.js';
+import { fetchPopularMoviesList, startPaginator } from './1initialHomePage.js';
 
 // ---- Слушатели событий --------------------------------------------
 
@@ -26,7 +25,7 @@ refs.inputForm.addEventListener('submit', searchFilms);
 function searchFilms(event) {
   event.preventDefault();
   apiServise.renderFilms = 2;
-  apiServise.pageNumber = 1;
+  startPaginator();
   apiServise.searchQuery = event.currentTarget.elements.query.value;
   refs.galleryRef.innerHTML = ''; //Стираем данные предыдущей страницы
   fetchPopularMoviesList(
@@ -120,4 +119,3 @@ function searchFilms(event) {
 //   fetchPopularMoviesList();
 // }
 // // const timerId = setTimeout(hideError, 3000);
-
