@@ -172,6 +172,9 @@ function finRender(results, elmPerPageOn) {
       arr[inxex].poster_path === null
         ? (arr[inxex].poster_path = '/b6MiDuJY694YWHMc9iaEc6nY0Qs.jpg')
         : arr[inxex].poster_path;
+
+    // формат рейтінгу
+    arr[inxex].vote_average = String(arr[inxex].vote_average).padEnd(3, '.0');
   });
 
   createCardFunc(
