@@ -148,7 +148,6 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
 // cховати повідомлення про помилку
 function hideError() {
   refs.searchErr.classList.add('is-hidden');
-  // fetchPopularMoviesList();
 }
 
 // Функция изменяет на странице отображение жанров (с числа на описание),
