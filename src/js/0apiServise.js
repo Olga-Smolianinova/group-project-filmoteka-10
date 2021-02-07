@@ -3,12 +3,6 @@ export default {
   pageNumber: 1, //Текущая страница запроса на пагинаторе
   renderFilms: 1, // Способ обращения к API (1-поп.фильмы, 2-поиск, 3-библиотека)
 
-  images: {
-    backdropSize: 'w780',
-    defaultImg: '',
-    width: 780,
-  },
-
   // для того чтобы записывать данные из input в searchQuery обратимся к свойствам get/set, чтобы из внешнего когда записать заначение в этот ключ
   get query() {
     return this.searchQuery;

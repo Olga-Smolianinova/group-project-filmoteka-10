@@ -14,8 +14,11 @@
 // ---- Импорты -------------------------------------------------------
 
 import templateListOfFilms from '../templates/list-films.hbs'; //  получаем доступ к шаблону для отображения списка фильмов
+
 import refs from '../js/refs.js';
+
 import pagination from 'pagination'; // Пагинатор
+
 import apiServise from './0apiServise.js'; // Глобальные переменные
 
 // доступ к функция showError() и showNotice() из notificaion.js для вывода сообщения о некорректном запросе и уведомлении
@@ -156,24 +159,25 @@ function hideError() {
 //   отправка массива на отрисовку и перересовка пагинатора
 function finRender(results, elmPerPageOn) {
   results.forEach(({ genre_ids }, inxex, arr) => {
+    // корекція жанрів
     genre_ids.forEach(
       (item1, inxex, arr) =>
         (arr[inxex] = genres.find(item2 => item2.id == item1)),
     );
 
-    // корегування дати
+    // корекція дати
     arr[inxex].release_date =
       typeof arr[inxex].release_date === 'string'
         ? arr[inxex].release_date.slice(0, 4)
         : arr[inxex].release_date;
 
-    // корегування фону
+    // корекція фону
     arr[inxex].poster_path =
       arr[inxex].poster_path === null
         ? (arr[inxex].poster_path = '/b6MiDuJY694YWHMc9iaEc6nY0Qs.jpg')
         : arr[inxex].poster_path;
 
-    // формат рейтінгу
+    // корекція рейтінгу
     arr[inxex].vote_average = String(arr[inxex].vote_average).padEnd(3, '.0');
   });
 
