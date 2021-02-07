@@ -1,3 +1,7 @@
+:root {
+  --timing-function: $timing-function;
+  --animation-duration: 250ms;
+}
 .visually-hidden {
   position: absolute;
   clip: rect(1px 1px 1px 1px);

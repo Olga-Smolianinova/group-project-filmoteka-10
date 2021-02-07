@@ -41,9 +41,12 @@
     background-color: $secondary-background-color;
 
     &:hover {
-      transform: scale(1.03);
+      cursor: zoom-in;
+      // transform: scale(1.03);
+      // transition: transform var(--animation-duration) var(--timing-function);
     }
   }
+
   @include for-size(tablet-landscape) {
     width: calc((100% - 1 * 30px) / 2);
     margin-right: 30px;
