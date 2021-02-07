@@ -18,6 +18,9 @@ import refs from '../js/refs.js';
 import pagination from 'pagination'; // Пагинатор
 import apiServise from './0apiServise.js'; // Глобальные переменные
 
+// доступ к функция showError() и showNotice() из notificaion.js для вывода сообщения о некорректном запросе и уведомлении
+import { showError, showNotice } from './notification.js';
+
 // ---- Глобальные переменные и объекты ----------------------------------------
 
 let genres; //Массив жанров
@@ -44,14 +47,6 @@ refs.paging.addEventListener('click', onClickPage); // Слушатель соб
 
 // Функция для отрисовки фильмов через template  в HTML
 function createCardFunc(imgPath, filmTitle, movieId) {
-  // ======test
-  // imgPath.map(({ release_date }) => {
-  //   const date = new Date(release_date);
-  //   // console.log(date.getFullYear());
-  //   console.log(String((release_date = date.getFullYear())));
-  // });
-  // console.log(filmTitle);
-  // console.log(movieId);
   const markup = templateListOfFilms(imgPath, filmTitle, movieId);
   refs.galleryRef.insertAdjacentHTML('beforeend', markup);
 }
@@ -117,11 +112,13 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
     })
     .then(({ results, total_results }) => {
       paginator.set('totalResult', total_results); // Меняем свойство пагинатора
-      console.log(total_results);
-      //
-      //  Если total_results =0 выводить красную фигню
-      //
-      //
+      // console.log(total_results);
+
+      // Если total_results =0 выводить красную фигню
+      if (total_results === 0) {
+        throw new Error('Error fetching data'); //прописываем для того чтобы лучше отловить ошибки. В случае, если данные по запросу отсутствуют и  вернулся [], ошибка ловится в catch
+        return;
+      }
 
       if (dblFetch) {
         //Загружаем еще одну страницу
@@ -136,7 +133,22 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
       } else {
         finRender(results, elmPerPageOn);
       }
+    })
+    .catch(error => {
+      if (error) {
+        refs.searchErr.classList.remove('is-hidden');
+        // виклик  hideError, щоб cховати повідомлення про помилку
+        const timerId = setTimeout(hideError, 3000);
+        showNotice('Please, enter your request!');
+      } else {
+        showError('Oops! Something went wrong. Try again.');
+      }
     });
+}
+// cховати повідомлення про помилку
+function hideError() {
+  refs.searchErr.classList.add('is-hidden');
+  // fetchPopularMoviesList();
 }
 
 // Функция изменяет на странице отображение жанров (с числа на описание),
