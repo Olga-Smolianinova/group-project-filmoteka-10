@@ -40,6 +40,8 @@ refs.paging.insertAdjacentHTML('beforeend', paginator.render()); // Отобра
 
 refs.paging.addEventListener('click', onClickPage); // Слушатель события на пагинатор
 
+// ---- Объявление функций --------------------------------------------
+
 // Функция для отрисовки фильмов через template  в HTML
 function createCardFunc(imgPath, filmTitle, movieId) {
   // ======test
@@ -115,6 +117,7 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
     })
     .then(({ results, total_results }) => {
       paginator.set('totalResult', total_results); // Меняем свойство пагинатора
+      console.log(total_results);
       //
       //  Если total_results =0 выводить красную фигню
       //
@@ -144,7 +147,10 @@ function finRender(results, elmPerPageOn) {
       (item1, inxex, arr) =>
         (arr[inxex] = genres.find(item2 => item2.id == item1)),
     );
-    arr[inxex].release_date = arr[inxex].release_date.slice(0, 4);
+    arr[inxex].release_date =
+      typeof arr[inxex].release_date === 'string'
+        ? arr[inxex].release_date.slice(0, 4)
+        : arr[inxex].release_date;
   });
   createCardFunc(
     results.slice(elmStartRender - 1, elmStartRender + elmPerPageOn - 1),
@@ -183,10 +189,16 @@ function onClickPage(evt) {
   }
 }
 
+//Функция сброса пагинатора
+function startPaginator() {
+  apiServise.pageNumber = 1;
+  paginator.set('current', apiServise.pageNumber);
+}
+
 // ---- Runtime ------------------------------------------------
 
 fetchGenres();
 
 // ---- Экспорты ------------------------------------------------
 
-export { createCardFunc, fetchPopularMoviesList };
+export { createCardFunc, fetchPopularMoviesList, startPaginator };
