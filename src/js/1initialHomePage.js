@@ -73,10 +73,8 @@ function fetchGenres() {
     });
 }
 
-
 // Функция fetch-запрос  для создания коллекции фильмов на главной странице
 function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
-
   // Определяем кол-во элементов на экране (зависит от устройства)
   let elmPerPageOn = 0;
   if (innerWidth >= 1024) {
@@ -141,12 +139,13 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
 // Функция изменяет на странице отображение жанров (с числа на описание),
 //   отправка массива на отрисовку и перересовка пагинатора
 function finRender(results, elmPerPageOn) {
-  results.forEach(({ genre_ids }) =>
+  results.forEach(({ genre_ids }, inxex, arr) => {
     genre_ids.forEach(
       (item1, inxex, arr) =>
         (arr[inxex] = genres.find(item2 => item2.id == item1)),
-    ),
-  );
+    );
+    arr[inxex].release_date = arr[inxex].release_date.slice(0, 4);
+  });
   createCardFunc(
     results.slice(elmStartRender - 1, elmStartRender + elmPerPageOn - 1),
   );
