@@ -117,6 +117,7 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
     })
     .then(({ results, total_results }) => {
       paginator.set('totalResult', total_results); // Меняем свойство пагинатора
+      console.log(total_results);
       //
       //  Если total_results =0 выводить красную фигню
       //
@@ -146,7 +147,10 @@ function finRender(results, elmPerPageOn) {
       (item1, inxex, arr) =>
         (arr[inxex] = genres.find(item2 => item2.id == item1)),
     );
-    arr[inxex].release_date = arr[inxex].release_date.slice(0, 4);
+    arr[inxex].release_date =
+      typeof arr[inxex].release_date === 'string'
+        ? arr[inxex].release_date.slice(0, 4)
+        : arr[inxex].release_date;
   });
   createCardFunc(
     results.slice(elmStartRender - 1, elmStartRender + elmPerPageOn - 1),
