@@ -1,7 +1,8 @@
 import refs from '../js/refs'
 import templateListOfFilms from '../templates/my-library.hbs';
 import { showNotice } from '../js/notification';
-import {getArrWatchedFilms, getArrQueueFilms} from '../js/modalWindow'
+import { getArrWatchedFilms, getArrQueueFilms } from '../js/modalWindow'
+import apiServise from './0apiServise.js';
 
 // ==========Логика для отрисовки "Просмотренных" фильмов===========
 
@@ -24,7 +25,8 @@ function fetchMoviesForId(movie_id) {                                   // ищ�
 }
 
 
-function clickBtn(evt) {                                                // делает розметку в мейн фильмов из локал сторедж "просмотренные"
+function clickBtn(evt) {
+    apiServise.renderFilms = 3;                                             // делает розметку в мейн фильмов из локал сторедж "просмотренные"
     activeBorderOn()
     addClassMyLibrary()
     evt.preventDefault();

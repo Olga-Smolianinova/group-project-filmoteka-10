@@ -40,11 +40,12 @@
     border-radius: 5px;
     background-color: $secondary-background-color;
 
+
     &:hover {
       cursor: zoom-in;
-      // transform: scale(1.03);
-      // transition: transform var(--animation-duration) var(--timing-function);
+      
     }
+
   }
 
   @include for-size(tablet-landscape) {

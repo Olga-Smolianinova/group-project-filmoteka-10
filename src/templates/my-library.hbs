@@ -6,6 +6,10 @@
 
         <p class="film-text"></p>
 
-        <p>{{release_date}} |<span class="vote-average">{{vote_average}}</span></p>
+        <p>{{#each genres}}
+            <span class="film-text genre"> {{name}}
+                {{/each}}
+                {{release_date}} |<span class="vote-average">{{vote_average}}</span>
+        </p>
     </div>
 </li>

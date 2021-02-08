@@ -68,7 +68,7 @@ refs.modalWindow.addEventListener('click', (evt) => {
     const arr = getArrWatchedFilms()
     const check = arr.includes(idFilmFromDataAction)
     if (check) {                                        // проверяет на наличие ID  фильма в локал сторедж
-      showNotice('Фильм уже добавлен')
+      showNotice('Фильм уже находится в библиотеке')
       return
     }
     saveFilmToWatched()
@@ -79,7 +79,7 @@ refs.modalWindow.addEventListener('click', (evt) => {
     const arr = getArrQueueFilms()
     const check = arr.includes(idFilmFromDataAction)
     if (check) {                                        // проверяет на наличие ID  фильма в локал сторедж
-      showNotice('Фильм уже добавлен')
+      showNotice('Фильм уже находится в библиотеке')
       return
     }
     saveFilmToQueue()
@@ -105,6 +105,8 @@ function makeStringWatched(idFilm) {                     //функцыя пол
 function saveFilmToWatched() {                           // записывает id фильма в локал сторедж "Просмотренные"
   const stringId = makeStringWatched(idFilmFromDataAction)  
   localStorage.setItem('watched', `${stringId}`)
+  closeFilmModal()
+  showNotice('Фильм добавлен')
 }
 
 // =================== Queue films
@@ -126,6 +128,8 @@ function makeStringQueue(idFilm) {                       //функцыя пол
 function saveFilmToQueue() {                              // записывает id фильма в локал сторедж "Добавленных в очеридь"
   const stringId = makeStringQueue(idFilmFromDataAction)  
   localStorage.setItem('queue', `${stringId}`)
+  closeFilmModal()
+  showNotice('Фильм добавлен')
 }
 
 // =======================
