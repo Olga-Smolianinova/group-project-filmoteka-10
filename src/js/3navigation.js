@@ -9,6 +9,8 @@ import apiServise from './0apiServise.js';
 refs.homeBtn.addEventListener('click', activeHomePage);
 refs.logo.addEventListener('click', activeHomePage);
 
+refs.headerTitle.addEventListener('click', activeHomePage);
+
 function activeHomePage(event) {
   event.preventDefault();
   apiServise.renderFilms = 1;
