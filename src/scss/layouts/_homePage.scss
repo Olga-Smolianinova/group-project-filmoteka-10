@@ -40,10 +40,14 @@
     border-radius: 5px;
     background-color: $secondary-background-color;
 
-    // &:hover {
-    //   transform: scale(1.03);
-    // }
+
+    &:hover {
+      cursor: zoom-in;
+      
+    }
+
   }
+
   @include for-size(tablet-landscape) {
     width: calc((100% - 1 * 30px) / 2);
     margin-right: 30px;
