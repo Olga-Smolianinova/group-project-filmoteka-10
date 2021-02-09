@@ -165,13 +165,13 @@
     display: block;
   }
 }
-.logo {
-  cursor: pointer;
-  @include for-size(tablet-landscape) {
-    margin-top: 5px;
-    margin-right: 12px;
-  }
-}
+// .logo {
+//   cursor: pointer;
+//   @include for-size(tablet-landscape) {
+//     margin-top: 5px;
+//     margin-right: 12px;
+//   }
+// }
 // .logo-text {
 //   display: flex;
 // }
@@ -314,6 +314,12 @@
   overflow: hidden;
   border: 2px solid #818181;
   // margin: 80px;
+
+  cursor: pointer;
+  // @include for-size(tablet-landscape) {
+  //   margin-top: 5px;
+  //   margin-right: 12px;
+  // }
 }
 
 .logobox:hover {
@@ -333,7 +339,7 @@
   }
 }
 
-.plenka:hover {
+.logo:hover {
   animation: animate225 500ms infinite;
   animation-timing-function: linear;
 }
