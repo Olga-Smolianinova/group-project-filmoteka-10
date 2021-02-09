@@ -157,7 +157,6 @@
   font-weight: 500;
   margin: 0;
   margin-left: 12px;
-  // margin-bottom: 5px;
   color: $primary-white-color;
   cursor: pointer;
 
@@ -165,38 +164,18 @@
     display: block;
   }
 }
-// .logo {
-//   cursor: pointer;
-//   @include for-size(tablet-landscape) {
-//     margin-top: 5px;
-//     margin-right: 12px;
-//   }
-// }
-// .logo-text {
-//   display: flex;
-// }
+
 .flex-conteiner {
   display: flex;
   // justify-content: space-between;
   flex-wrap: nowrap;
   align-items: center;
 }
-// .item {
-//   margin-top: 17px;
-// }
+
 .item:last-child {
   margin-left: 40px;
 }
-// .item:first-child {
-//   margin-left: 112px;
 
-//   @include for-size(tablet-landscape) {
-//     margin-left: 303px;
-//   }
-//   @include for-size(desktop) {
-//     margin-left: 565px;
-//   }
-// }
 .item a {
   border-bottom: 3px solid transparent;
 
@@ -313,13 +292,7 @@
   border-radius: 3px;
   overflow: hidden;
   border: 2px solid #818181;
-  // margin: 80px;
-
   cursor: pointer;
-  // @include for-size(tablet-landscape) {
-  //   margin-top: 5px;
-  //   margin-right: 12px;
-  // }
 }
 
 .logobox:hover {
