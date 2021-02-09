@@ -1,0 +1,19 @@
+<svg aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<defs>
+<symbol id="icon-film" viewBox="0 0 20 32">
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="85.5429" stroke-width="2.2014" d="M4.466 0.088v31.989"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="85.5429" stroke-width="2.2014" d="M15.473 0.102v32.345"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="85.5429" stroke-width="2.2014" d="M-1.037 10.629h22.013"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="85.5429" stroke-width="2.2014" d="M-1.037 5.126h5.503"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="85.5429" stroke-width="2.2014" d="M-1.037 16.132h5.503"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="85.5429" stroke-width="2.2014" d="M15.473 16.132h5.503"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="85.5429" stroke-width="2.2014" d="M15.473 5.126h5.503"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="85.5429" stroke-width="2.2014" d="M-1.139 21.667h22.013"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="85.5429" stroke-width="2.2014" d="M15.537 27.219h5.503"></path>
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="85.5429" stroke-width="2.2014" d="M-1.124 27.243h5.503"></path>
+</symbol>
+<symbol id="icon-Ramka" viewBox="0 0 32 32">
+<path fill="none" stroke="#818181" style="stroke: var(--color1, #818181)" stroke-linejoin="round" stroke-linecap="round" stroke-miterlimit="79.8403" stroke-width="2.9216" d="M1.461 3.913v24.161c0 1.361 1.104 2.465 2.465 2.465h24.162c1.361 0 2.465-1.104 2.465-2.465v-24.161c0-1.361-1.104-2.465-2.465-2.465h-24.162c-1.361 0-2.465 1.104-2.465 2.465z"></path>
+</symbol>
+</defs>
+</svg>

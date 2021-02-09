@@ -116,6 +116,7 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
     .then(({ results, total_results }) => {
       paginator.set('totalResult', total_results); // Меняем свойство пагинатора
 
+
       // Если total_results =0 выводить красную фигню
       if (total_results === 0) {
         throw new Error('Error fetching data'); //прописываем для того чтобы лучше отловить ошибки. В случае, если данные по запросу отсутствуют и  вернулся [], ошибка ловится в catch
@@ -221,12 +222,12 @@ function startPaginator() {
   paginator.set('current', apiServise.pageNumber);
 }
 
-// ====================================== Спинер
 
 
 
 
-// =======================================
+
+
 
 // ---- Runtime ------------------------------------------------
 
@@ -234,4 +235,4 @@ fetchGenres();
 
 // ---- Экспорты ------------------------------------------------
 
-export { createCardFunc, fetchPopularMoviesList, startPaginator };
+export { createCardFunc, fetchPopularMoviesList, startPaginator, finRender };

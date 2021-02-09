@@ -1,4 +1,6 @@
 const refs = {
+  headerTitle: document.querySelector('.title'),
+
   galleryRef: document.querySelector('.gallery'),
   main: document.querySelector('main'), // ссылка откуда надо брать названия фильмов для локал сторедж
 
