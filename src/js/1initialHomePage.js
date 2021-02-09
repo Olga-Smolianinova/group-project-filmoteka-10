@@ -115,8 +115,7 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
     })
     .then(({ results, total_results }) => {
       paginator.set('totalResult', total_results); // Меняем свойство пагинатора
-      // console.log(total_results);
-      // console.log(results);
+
 
       // Если total_results =0 выводить красную фигню
       if (total_results === 0) {
@@ -222,6 +221,13 @@ function startPaginator() {
   apiServise.pageNumber = 1;
   paginator.set('current', apiServise.pageNumber);
 }
+
+
+
+
+
+
+
 
 // ---- Runtime ------------------------------------------------
 

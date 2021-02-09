@@ -6,7 +6,9 @@ import apiServise from './0apiServise.js';
 
 // ==========Логика для отрисовки "Просмотренных" фильмов===========
 
-let arrWatchedFilms; // масив "Просмотренных фильмов"
+
+let arrWatchedFilms;                                                    // масив "Просмотренных фильмов"
+
 let arrQueueFilms;
 
 function fetchMoviesForId(movie_id) {
@@ -78,13 +80,16 @@ function activeBtnWatched(evt) {
   fetchMoviesFromLocalStorage();
 }
 
-function fetchMoviesFromLocalStorage() {
-  // делает fetch на каждый id фильма из масива в local storege watched
-  if (arrWatchedFilms.length === 0) {
-    const message = 'Add movies';
-    showNotice(message);
-  }
-  arrWatchedFilms.map(film => {
-    fetchMoviesForId(film);
-  });
+
+
+function fetchMoviesFromLocalStorage() {                                // делает fetch на каждый id фильма из масива в local storege watched
+    const arr = getArrWatchedFilms()
+    if (arr.length === 0) {
+        const message = 'Add movies'
+        showNotice(message)
+    }
+    arr.map(film => {
+        fetchMoviesForId(film)
+    })
+
 }
