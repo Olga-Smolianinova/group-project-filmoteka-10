@@ -170,6 +170,7 @@
   // justify-content: space-between;
   flex-wrap: nowrap;
   align-items: center;
+  position: relative;
 }
 
 .item:last-child {
@@ -294,22 +295,32 @@
   overflow: hidden;
   border: 2px solid #818181;
   cursor: pointer;
+  z-index: 2;
 }
 
 .logobox:hover {
   animation: changeBgColor 500ms infinite;
 }
+.logobox:hover ~ .logofon {
+  animation-name: changeFonColor;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
+}
 
 @keyframes changeBgColor {
   0% {
-    background-color: rgb(7, 72, 94);
+    background-color: #47a5db;
   }
-  50% {
-    background-color: rgb(0, 0, 0);
+
+  30% {
+    background-color: #74badb;
+  }
+  40% {
+    background-color: #063449;
   }
 
   100% {
-    background-color: rgb(7, 72, 94);
+    background-color: #4b99b1;
   }
 }
 
@@ -324,4 +335,38 @@
   100% {
     transform: translateY(-10px);
   }
+}
+
+.logofon {
+  left: -25px;
+  width: 75px;
+  height: 75px;
+  position: absolute;
+  z-index: 1;
+}
+
+@keyframes changeFonColor {
+  0% {
+    background: radial-gradient(closest-side, #47a5db, #000000);
+  }
+
+  30% {
+    background: radial-gradient(closest-side, #74badb, #000000);
+  }
+  40% {
+    background: radial-gradient(closest-side, #063449, #000000);
+  }
+
+  100% {
+    background: radial-gradient(closest-side, #4b99b1, #000000);
+  }
+}
+.logo-text {
+  z-index: 2;
+}
+
+.logo-text:hover ~ .logofon {
+  animation-name: changeFonColor;
+  animation-duration: 500ms;
+  animation-iteration-count: infinite;
 }
