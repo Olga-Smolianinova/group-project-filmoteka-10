@@ -1,3 +1,126 @@
-.container {
-  background-color: yellow;
+
+
+@mixin centeredFlex() {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
+
+.footer-text {
+  font-size: 14px;
+  line-height: 19px;
+
+  height: 100px;
+
+  color: #545454;
+
+  @include centeredFlex();
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    height: 77px;
+    flex-direction: row;
+  }
+}
+
+.footer-dev {
+  display: flex;
+  margin-top: 10px;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+    margin-left: 4px;
+  }
+}
+
+.background {
+  background-color: #f7f7f7;
+}
+
+.icon-heart {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+// =================================================>
+.lightbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--animation-duration) var(--timing-function);
+}
+
+.lightbox.is-open {
+  opacity: 1;
+  pointer-events: initial;
+}
+
+.lightbox__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.lightbox__content {
+  transform: scale(0.95);
+  transition: transform var(--animation-duration) var(--timing-function);
+}
+
+.lightbox.is-open .lightbox__content {
+  transform: scale(1);
+
+  .user-list {
+    .content-el {
+      width: 200px;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+
+
+    .item-footer {
+
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 16px;
+      color: #000;
+
+      display: block;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #ff6b08;
+      width: 200px;
+      padding: 15px;
+      @include centeredFlex();
+
+      &:hover {
+        background-color: rgba(255, 107, 8, 0.8);
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    .user-list {
+      display: flex;
+      flex-wrap: wrap;
+      width: 420px;
+
+      .content-el:not(:nth-child(2n)) {
+        margin-right: 20px;
+      }
+    }
+  }
+}
+

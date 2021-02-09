@@ -10,13 +10,10 @@
 @import './base/fonts';
 
 // COMPONENTS
-@import './components/logo';
 @import './components/modal-main';
+@import './components/paginator';
 
 // LAYOUTS
 @import './layouts/header';
-@import './layouts/main';
 @import './layouts/homePage';
-@import './layouts/detailsPage';
-@import './layouts/myFilmLibraryPage';
 @import './layouts/footer';

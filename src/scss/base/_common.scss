@@ -1,13 +1,17 @@
-// .visually-hidden {
-//   position: absolute;
-//   clip: rect(1px 1px 1px 1px);
-//   clip: rect(1px, 1px, 1px, 1px);
-//   padding: 0;
-//   border: 0;
-//   height: 1px;
-//   width: 1px;
-//   overflow: hidden;
-// }
+:root {
+  --timing-function: $timing-function;
+  --animation-duration: 250ms;
+}
+.visually-hidden {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
 
 html {
   box-sizing: border-box;
@@ -17,31 +21,30 @@ body {
   margin: 0;
   font-family: Roboto, sans-serif;
   font-size: 12px;
-  line-height: 16px;
   font-weight: 500;
+  line-height: 1.33;
   // letter-spacing: 0.08em;
-  color: $primary-text-color;
-  background-color: $secondary-bacground-color;
+  color: $main-text-color;
+  background-color: $primary-white-color;
 }
 
 *,
 *::before,
 *::after {
   box-sizing: inherit;
-  outline: 2px solid teal;
+  // outline: 2px solid teal;
 }
 
-// :active,
-// :hover,
-// :focus {
-//   outline: 0;
-//   outline-offset: 0;
-// }
+:active,
+:hover,
+:focus {
+  outline: 0;
+  outline-offset: 0;
+}
 
 h1,
 h2,
 h3,
-ul,
 li,
 p {
   margin-top: 0px;
@@ -51,7 +54,7 @@ p {
 img {
   display: block;
   max-width: 100%;
-  height: auto;
+  // height: auto;
 }
 
 ul {
@@ -75,23 +78,6 @@ a {
     padding: 60px 71px;
   }
 }
-
-// .container {
-//   margin-left: auto;
-//   margin-right: auto;
-//   width: 100%;
-//   padding-left: 20px;
-//   padding-right: 20px;
-
-//   @include for-size(tablet-landscape) {
-//     width: 768px;
-//     padding-left: 40px;
-//     padding-right: 40px;
-//   }
-
-//   @include for-size(desktop) {
-//     width: 1024px;
-//     padding-left: 20px;
-//     padding-right: 20px;
-//   }
-// }
+.no-style {
+  display: none;
+}

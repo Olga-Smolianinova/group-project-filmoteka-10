@@ -1,0 +1,15 @@
+<li class="film-element">
+    {{!-- <img src={{poster_path}} alt=''> --}}
+    <img src="https://image.tmdb.org/t/p/w500{{poster_path}}" alt="{{ title }}" data-action={{id}} class="poster-img">
+    <div class="film-sign">
+        <h3 class="film-title">{{ original_title}}</h3>
+
+        <p class="film-text"></p>
+
+        <p>{{#each genres}}
+            <span class="film-text genre"> {{name}}
+                {{/each}}
+                {{release_date}} |<span class="vote-average">{{vote_average}}</span>
+        </p>
+    </div>
+</li>
