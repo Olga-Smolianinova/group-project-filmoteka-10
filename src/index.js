@@ -12,8 +12,6 @@ import './js/2searchAndPlaginationHomePage.js';
 
 import './js/3navigation.js';
 
-import './js/4filmDetailsPage.js';
-
 import './js/5libraryPage';
 
 import './js/modalWindow';
@@ -23,5 +21,3 @@ import './js/footer';
 import './js/notification.js';
 
 import './js/refs.js';
-
-import './js/fetchDraft.js'; //чернетка
