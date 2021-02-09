@@ -140,7 +140,7 @@ function fetchPopularMoviesList(pageNumber, renderFilms, searchQuery) {
       if (error) {
         refs.searchErr.classList.remove('is-hidden');
         // виклик  hideError, щоб cховати повідомлення про помилку
-        // const timerId = setTimeout(hideError, 3000);
+        const timerId = setTimeout(hideError, 3000);
         showNotice('Please, enter your request!');
       } else {
         showError('Oops! Something went wrong. Try again.');
